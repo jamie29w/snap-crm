@@ -16,10 +16,12 @@ function HeaderComponent(props) {
         marginLeft: "auto",
         marginRight: "auto"
     };
-    const spanStyle = {
+    const snapStyle = {
         fontFamily: "'Yellowtail', cursive",
         fontSize: "4.3em",
-        display: "inline"
+        display: "inline",
+        textShadow: "0 0 25px #FAFAFA",
+        marginRight: "2px"
     };
     const crmStyle = {
         fontFamily: "'Raleway', sans-serif",
@@ -27,14 +29,15 @@ function HeaderComponent(props) {
         fontSize: "4em",
         // fontStyle: "italic"
         display: "inline",
-        color: "#FAFAFA"
+        color: "#FAFAFA",
+        marginLeft: "2px"
     };
 
     return (
         <div>
             <div style={headerDivStyles}>
                 <div style={containerStyle}>
-                    <h1 style={spanStyle}>Snap </h1>
+                    <h1 style={snapStyle}>Snap</h1>
                     <h1 style={crmStyle}>CRM</h1>
                 </div>
             </div>

@@ -6,3 +6,13 @@
 div {
     border: 1px dotted rebeccapurple;
 }
+
+.linkStyles {
+    color: rgba(250, 250, 250, 0.65);
+    text-decoration: none;
+}
+
+.linkStyles:hover,
+:focus {
+    color: rgba(250, 250, 250, 1);
+}

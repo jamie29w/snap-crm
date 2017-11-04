@@ -1,14 +1,14 @@
 import React from "react";
 import HeaderComponent from "./header/Component";
-import Body from "./body/Container";
-import Footer from "./footer/Component";
+import BodyComponent from "./body/Component";
+import FooterComponent from "./footer/Component";
 
 function App() {
     return (
         <div>
             <HeaderComponent />
-            <Body />
-            <Footer />
+            <BodyComponent />
+            <FooterComponent />
         </div>
     );
 }

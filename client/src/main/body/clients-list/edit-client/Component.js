@@ -31,7 +31,9 @@ function EditClientComponent(props) {
                 marginLeft: "5px",
                 marginRight: "5px"
             }}>
-            <Button onClick={props.openModal}>Edit</Button>
+            <Button className="buttonClass" onClick={props.openModal}>
+                Edit
+            </Button>
             <Modal
                 style={modalStyles}
                 show={props.modalShow}

@@ -11,7 +11,7 @@ class HeaderContainer extends React.Component {
             showModal: false,
             inputs: {
                 name: "",
-                quote: null,
+                quote: 0,
                 sessionType: "",
                 sessionDate: "",
                 specialRequests: ""

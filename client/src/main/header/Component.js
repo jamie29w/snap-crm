@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 
 function HeaderComponent(props) {
     const headerDivStyles = {
-        backgroundColor: "gray",
+        backgroundColor: "rgba(18, 51, 66, 0.8)",
         // backgroundSize: "cover",
         width: "100%",
         height: "35vh",
@@ -26,7 +26,8 @@ function HeaderComponent(props) {
         fontSize: "6.6em",
         display: "inline",
         textShadow: "0 0 25px #FAFAFA",
-        marginRight: "2px"
+        marginRight: "2px",
+        color: "rgba(51, 51, 51, 0.98)"
     };
     const crmStyle = {
         fontFamily: "'Raleway', sans-serif",
@@ -38,12 +39,6 @@ function HeaderComponent(props) {
         marginLeft: "2px"
     };
 
-    const buttonStyles = {
-        backgroundColor: "#FAFAFA",
-        fontFamily: "'Raleway', sans-serif",
-        fontSize: "1.4em"
-    };
-
     return (
         <div>
             <div style={headerDivStyles}>
@@ -52,7 +47,10 @@ function HeaderComponent(props) {
                     <h1 style={crmStyle}>CRM</h1>
                 </div>
                 <div style={containerStyles}>
-                    <Button onClick={props.openModal} style={buttonStyles}>
+                    <Button
+                        style={{ padding: "10px 15px", fontSize: "1.3em" }}
+                        onClick={props.openModal}
+                        className="buttonClass">
                         Add a Client
                     </Button>
                 </div>

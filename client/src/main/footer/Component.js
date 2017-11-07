@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer(props) {
     const footerDivStyles = {
-        backgroundColor: "gray",
+        backgroundColor: "rgba(18, 51, 66, 0.8)",
         width: "100%",
         height: "10vh",
         display: "flex",

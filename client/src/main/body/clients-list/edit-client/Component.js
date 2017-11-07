@@ -1,4 +1,5 @@
 import React from "react";
+import ModalComponent from "../../../Modal";
 import { FormGroup, FormControl, Button, Modal } from "react-bootstrap";
 
 function EditClientComponent(props) {
@@ -34,35 +35,13 @@ function EditClientComponent(props) {
             <Button className="buttonClass" onClick={props.openModal}>
                 Edit
             </Button>
-            <Modal
-                style={modalStyles}
+            <ModalComponent
                 show={props.modalShow}
-                onHide={props.closeModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Edit your Client Session:</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <FormGroup>
-                        <div style={colStyles}>
-                            Name:
-                            <FormControl style={rowStyles} type="text" />
-                            Quote:
-                            <FormControl style={rowStyles} type="text" />
-                        </div>
-                        <div style={colStyles}>
-                            Session Type:
-                            <FormControl style={rowStyles} type="text" />
-                            Session Date:
-                            <FormControl style={rowStyles} type="text" />
-                        </div>
-                        <div>
-                            Special Requests:
-                            <FormControl style={textAreaStyles} type="text" />
-                        </div>
-                        <Button style={{ marginLeft: "2.5%" }}>Save!</Button>
-                    </FormGroup>
-                </Modal.Body>
-            </Modal>
+                onHide={props.closeModal}
+                handleChange={props.handleChange}
+                handleSaveSubmit={props.handleSaveSubmit}
+                inputs={props.inputs}
+            />
         </div>
     );
 }

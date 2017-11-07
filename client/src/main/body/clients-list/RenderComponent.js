@@ -1,7 +1,7 @@
 import React from "react";
 import Client from "./Client";
 
-function ClientRenderComponent() {
+function ClientRenderComponent(props) {
     const containerStyles = {
         textAlign: "center",
         display: "flex",
@@ -10,13 +10,7 @@ function ClientRenderComponent() {
         justifyContent: "space-around"
     };
 
-    return (
-        <div style={containerStyles}>
-            <Client />
-            <Client />
-            <Client />
-        </div>
-    );
+    return <div style={containerStyles}>{props.genClientsList()}</div>;
 }
 
 export default ClientRenderComponent;

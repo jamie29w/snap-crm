@@ -7,7 +7,7 @@ function HeaderComponent(props) {
         backgroundColor: "gray",
         // backgroundSize: "cover",
         width: "100%",
-        height: "40vh",
+        height: "30vh",
         display: "flex",
         alignItems: "center"
     };
@@ -18,7 +18,7 @@ function HeaderComponent(props) {
     };
     const snapStyle = {
         fontFamily: "'Yellowtail', cursive",
-        fontSize: "4.3em",
+        fontSize: "6.6em",
         display: "inline",
         textShadow: "0 0 25px #FAFAFA",
         marginRight: "2px"
@@ -26,7 +26,7 @@ function HeaderComponent(props) {
     const crmStyle = {
         fontFamily: "'Raleway', sans-serif",
         fontWeight: "300",
-        fontSize: "4em",
+        fontSize: "6em",
         // fontStyle: "italic"
         display: "inline",
         color: "#FAFAFA",

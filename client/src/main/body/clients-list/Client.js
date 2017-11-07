@@ -55,7 +55,7 @@ function ClientRenderComponent(props) {
                 }}>
                 Delete
             </Button>
-            <EditClientContainer />
+            <EditClientContainer id={props.client._id} />
         </div>
     );
 }

@@ -1,15 +1,26 @@
 import React from "react";
 import EditClientComponent from "./Component";
+import { clientActions } from "../../../../redux/clients";
+import { connect } from "react-redux";
 
 class EditClientContainer extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            showModal: false
+            showModal: false,
+            inputs: {
+                name: "",
+                quote: 0,
+                sessionType: "",
+                sessionDate: "",
+                specialRequests: ""
+            }
         };
 
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSaveSubmit = this.handleSaveSubmit.bind(this);
     }
 
     closeModal() {
@@ -20,15 +31,37 @@ class EditClientContainer extends React.Component {
         this.setState({ showModal: true });
     }
 
+    handleChange(e) {
+        e.persist();
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                inputs: {
+                    ...prevState.inputs,
+                    [e.target.name]: e.target.value
+                }
+            };
+        });
+        console.log(this.state.inputs);
+    }
+
+    handleSaveSubmit(e) {
+        e.preventDefault();
+        this.props.editClient(this.props.id, this.state.inputs);
+    }
+
     render() {
         return (
             <EditClientComponent
                 openModal={this.openModal}
                 closeModal={this.closeModal}
                 modalShow={this.state.showModal}
+                handleChange={this.handleChange}
+                handleSaveSubmit={this.handleSaveSubmit}
+                inputs={this.state.inputs}
             />
         );
     }
 }
 
-export default EditClientContainer;
+export default connect(null, clientActions)(EditClientContainer);

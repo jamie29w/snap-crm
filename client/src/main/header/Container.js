@@ -21,7 +21,7 @@ class HeaderContainer extends React.Component {
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleAddSubmit = this.handleAddSubmit.bind(this);
+        this.handleSaveSubmit = this.handleSaveSubmit.bind(this);
     }
 
     closeModal() {
@@ -29,7 +29,6 @@ class HeaderContainer extends React.Component {
     }
 
     openModal() {
-        console.log(`openModal was run. showModal is ${this.state.showModal}`);
         this.setState({ showModal: true });
     }
 
@@ -47,7 +46,7 @@ class HeaderContainer extends React.Component {
         console.log(this.state.inputs);
     }
 
-    handleAddSubmit(e) {
+    handleSaveSubmit(e) {
         e.preventDefault();
         this.props.addClient(this.state.inputs);
     }
@@ -59,7 +58,7 @@ class HeaderContainer extends React.Component {
                 closeModal={this.closeModal}
                 modalShow={this.state.showModal}
                 handleChange={this.handleChange}
-                handleAddSubmit={this.handleAddSubmit}
+                handleSaveSubmit={this.handleSaveSubmit}
                 inputs={this.state.inputs}
             />
         );

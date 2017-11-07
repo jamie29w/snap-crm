@@ -1,13 +1,10 @@
 import React from "react";
-// import glamorous, { ThemeProvider } from "glamorous";
-import ModalComponent from "./Modal";
-// import backgroundUrl from "../../assets/cameras-wide.jpeg";
+import ModalComponent from "../Modal";
 import { Button } from "react-bootstrap";
 
 function HeaderComponent(props) {
     const headerDivStyles = {
         backgroundColor: "rgba(18, 51, 66, 0.8)",
-        // backgroundSize: "cover",
         width: "100%",
         height: "35vh",
         minHeight: "200px",
@@ -33,7 +30,6 @@ function HeaderComponent(props) {
         fontFamily: "'Raleway', sans-serif",
         fontWeight: "300",
         fontSize: "6em",
-        // fontStyle: "italic"
         display: "inline",
         color: "#FAFAFA",
         marginLeft: "2px"
@@ -59,7 +55,7 @@ function HeaderComponent(props) {
                 show={props.modalShow}
                 onHide={props.closeModal}
                 handleChange={props.handleChange}
-                handleAddSubmit={props.handleAddSubmit}
+                handleSaveSubmit={props.handleSaveSubmit}
                 inputs={props.inputs}
             />
         </div>

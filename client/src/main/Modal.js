@@ -32,7 +32,7 @@ function ModalComponent(props) {
                 <Modal.Title>Your Client Session:</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form onSubmit={props.handleAddSubmit}>
+                <form onSubmit={props.handleSaveSubmit}>
                     <FormGroup>
                         <div style={colStyles}>
                             Name:

@@ -4,7 +4,7 @@ import EditClientContainer from "./edit-client/Container";
 
 function ClientRenderComponent(props) {
     const cardStyles = {
-        backgroundColor: "rgba(223, 223, 229, .25)",
+        backgroundColor: "rgba(223, 223, 229, .5)",
         width: "30%",
         minWidth: "250px",
         // flexGrow: "1",
@@ -55,7 +55,7 @@ function ClientRenderComponent(props) {
                 }}>
                 Delete
             </Button>
-            <EditClientContainer id={props.client._id} />
+            <EditClientContainer client={props.client} id={props.client._id} />
         </div>
     );
 }

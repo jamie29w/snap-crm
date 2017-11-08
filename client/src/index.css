@@ -25,6 +25,7 @@ div {
     fontfamily: "Raleway", sans-serif;
     fontsize: 1.4em;
     margin: 5px 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 .buttonClass:hover,

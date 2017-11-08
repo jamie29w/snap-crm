@@ -1,5 +1,7 @@
 import React from "react";
+// import Moment from "moment";
 import { FormGroup, FormControl, Button, Modal } from "react-bootstrap";
+import Datetime from "react-datetime";
 
 function ModalComponent(props) {
     const modalStyles = {
@@ -39,9 +41,6 @@ function ModalComponent(props) {
         height: "20vh"
     };
 
-    // const buttonStyles = {
-    //     marginLeft: "2.5%"
-    // };
     return (
         <Modal show={props.show} onHide={props.onHide} style={modalStyles}>
             <Modal.Header style={headerStyles} closeButton>
@@ -77,14 +76,19 @@ function ModalComponent(props) {
                                 name="sessionType"
                                 type="text"
                             />
-                            Session Date:
-                            <FormControl
+                            Session Date & Time:
+                            <Datetime
+                                style={rowStyles}
+                                onChange={props.handleDateChange}
+                                name="sessionDate"
+                            />
+                            {/*<FormControl
                                 style={rowStyles}
                                 onChange={props.handleChange}
                                 value={props.inputs.sessionDate}
                                 name="sessionDate"
                                 type="text"
-                            />
+                            />*/}
                         </div>
                         <div>
                             Special Requests:

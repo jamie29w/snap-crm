@@ -57,6 +57,7 @@ function HeaderComponent(props) {
                 handleChange={props.handleChange}
                 handleSaveSubmit={props.handleSaveSubmit}
                 inputs={props.inputs}
+                closeModal={props.closeModal}
             />
         </div>
     );

@@ -1,5 +1,4 @@
 import React from "react";
-import Client from "./Client";
 
 function ClientRenderComponent(props) {
     const containerStyles = {

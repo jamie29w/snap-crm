@@ -9,11 +9,11 @@ class EditClientContainer extends React.Component {
         this.state = {
             showModal: false,
             inputs: {
-                name: "",
-                quote: 0,
-                sessionType: "",
-                sessionDate: "",
-                specialRequests: ""
+                name: this.props.client.name,
+                quote: this.props.client.quote,
+                sessionType: this.props.client.sessionType,
+                sessionDate: this.props.client.sessionDate,
+                specialRequests: this.props.client.specialRequests
             }
         };
 
@@ -28,6 +28,7 @@ class EditClientContainer extends React.Component {
     }
 
     openModal() {
+        console.log(this.props);
         this.setState({ showModal: true });
     }
 

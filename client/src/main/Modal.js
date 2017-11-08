@@ -3,8 +3,20 @@ import { FormGroup, FormControl, Button, Modal } from "react-bootstrap";
 
 function ModalComponent(props) {
     const modalStyles = {
-        color: "black"
+        color: "black",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+        fontFamily: "'Raleway', sans-serif"
     };
+    const headerStyles = {
+        backgroundColor: "rgba(18, 51, 66, 1)",
+        color: "#FAFAFA"
+    };
+
+    const bodyStyles = {
+        backgroundColor: "rgba(18, 51, 66, 0.8)",
+        color: "#FAFAFA"
+    };
+
     const colStyles = {
         position: "relative",
         top: "0",
@@ -26,12 +38,16 @@ function ModalComponent(props) {
         marginBottom: "5px",
         height: "20vh"
     };
+
+    // const buttonStyles = {
+    //     marginLeft: "2.5%"
+    // };
     return (
         <Modal show={props.show} onHide={props.onHide} style={modalStyles}>
-            <Modal.Header closeButton>
+            <Modal.Header style={headerStyles} closeButton>
                 <Modal.Title>Your Client Session:</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body style={bodyStyles}>
                 <form onSubmit={props.handleSaveSubmit}>
                     <FormGroup>
                         <div style={colStyles}>
@@ -81,8 +97,13 @@ function ModalComponent(props) {
                                 componentClass="textarea"
                             />
                         </div>
-                        <Button type="submit" style={{ marginLeft: "2.5%" }}>
+                        <Button type="submit" className="buttonClass">
                             Save!
+                        </Button>
+                        <Button
+                            onClick={props.closeModal}
+                            className="buttonClass">
+                            Close
                         </Button>
                     </FormGroup>
                 </form>

@@ -33,12 +33,13 @@ class EditClientContainer extends React.Component {
         this.setState({ showModal: true });
     }
 
-    handleDateChange(e) {
+    handleDateChange(mmtDT) {
+        console.log(mmtDT);
         this.setState(prevState => {
             return {
                 inputs: {
                     ...prevState.inputs,
-                    sessionDate: e._d
+                    sessionDate: mmtDT._d
                 }
             };
         });

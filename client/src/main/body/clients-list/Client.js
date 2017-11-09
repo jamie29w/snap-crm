@@ -4,7 +4,7 @@ import EditClientContainer from "./edit-client/Container";
 
 function ClientRenderComponent(props) {
     const cardStyles = {
-        backgroundColor: "rgba(223, 223, 229, .5)",
+        backgroundColor: "rgba(223, 223, 229, .7)",
         width: "30%",
         minWidth: "250px",
         flexBasis: "auto",

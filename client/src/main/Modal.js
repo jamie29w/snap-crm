@@ -81,14 +81,9 @@ function ModalComponent(props) {
                                 style={rowStyles}
                                 onChange={props.handleDateChange}
                                 name="sessionDate"
-                            />
-                            {/*<FormControl
-                                style={rowStyles}
-                                onChange={props.handleChange}
+                                dateFormat={"ll"}
                                 value={props.inputs.sessionDate}
-                                name="sessionDate"
-                                type="text"
-                            />*/}
+                            />
                         </div>
                         <div>
                             Special Requests:

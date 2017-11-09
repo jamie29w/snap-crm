@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 
 const clientsUrl = "http://localhost:8900/clients/";
 
@@ -63,7 +64,15 @@ export default function clients(prevClients = [], action) {
     let newClients = [...prevClients];
     switch (action.type) {
         case LOAD_CLIENTS:
-            return action.clients.reverse();
+            console.log(action.clients);
+            return action.clients
+                .map(client => {
+                    client.sessionDate = moment(client.sessionDate).format(
+                        "lll"
+                    );
+                    return client;
+                })
+                .reverse();
         case ADD_CLIENT:
             return [action.client, ...newClients];
         case DELETE_CLIENT:
@@ -72,7 +81,12 @@ export default function clients(prevClients = [], action) {
             });
         case EDIT_CLIENT:
             return newClients.map(client => {
-                return client._id === action.id ? action.editedClient : client;
+                if (client._id === action.id) {
+                    action.editedClient.sessionDate = moment(
+                        action.editedClient.sessionDate
+                    ).format("lll");
+                    return action.editedClient;
+                } else return client;
             });
         default:
             return prevClients;

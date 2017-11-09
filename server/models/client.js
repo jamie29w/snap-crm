@@ -7,8 +7,7 @@ const clientSchema = new Schema({
         type: String
     },
     sessionType: String,
-    sessionDate: String,
-    sessionTime: String,
+    sessionDate: Date,
     quote: Number,
     paid: Boolean,
     specialRequests: String

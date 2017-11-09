@@ -21,6 +21,7 @@ class EditClientContainer extends React.Component {
         this.closeModal = this.closeModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSaveSubmit = this.handleSaveSubmit.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
     closeModal() {
@@ -30,6 +31,18 @@ class EditClientContainer extends React.Component {
     openModal() {
         console.log(this.props);
         this.setState({ showModal: true });
+    }
+
+    handleDateChange(mmtDT) {
+        console.log(mmtDT);
+        this.setState(prevState => {
+            return {
+                inputs: {
+                    ...prevState.inputs,
+                    sessionDate: mmtDT._d
+                }
+            };
+        });
     }
 
     handleChange(e) {
@@ -49,9 +62,11 @@ class EditClientContainer extends React.Component {
     handleSaveSubmit(e) {
         e.preventDefault();
         this.props.editClient(this.props.id, this.state.inputs);
+        this.setState({ showModal: false });
     }
 
     render() {
+        // console.log(this.state);
         return (
             <EditClientComponent
                 openModal={this.openModal}
@@ -60,6 +75,7 @@ class EditClientContainer extends React.Component {
                 handleChange={this.handleChange}
                 handleSaveSubmit={this.handleSaveSubmit}
                 inputs={this.state.inputs}
+                handleDateChange={this.handleDateChange}
             />
         );
     }

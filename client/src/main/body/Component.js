@@ -8,7 +8,7 @@ function BodyContainer() {
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
 
-        minHeight: "60vh",
+        minHeight: "70vh",
         width: "100%"
     };
 

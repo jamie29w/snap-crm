@@ -13,7 +13,7 @@ class HeaderContainer extends React.Component {
                 name: "",
                 quote: 0,
                 sessionType: "",
-                sessionDate: "",
+                sessionDate: {},
                 specialRequests: ""
             }
         };
@@ -22,6 +22,7 @@ class HeaderContainer extends React.Component {
         this.closeModal = this.closeModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSaveSubmit = this.handleSaveSubmit.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
     closeModal() {
@@ -30,6 +31,18 @@ class HeaderContainer extends React.Component {
 
     openModal() {
         this.setState({ showModal: true });
+    }
+
+    handleDateChange(mmtDT) {
+        console.log(mmtDT);
+        this.setState(prevState => {
+            return {
+                inputs: {
+                    ...prevState.inputs,
+                    sessionDate: mmtDT._d
+                }
+            };
+        });
     }
 
     handleChange(e) {
@@ -60,6 +73,7 @@ class HeaderContainer extends React.Component {
                 handleChange={this.handleChange}
                 handleSaveSubmit={this.handleSaveSubmit}
                 inputs={this.state.inputs}
+                handleDateChange={this.handleDateChange}
             />
         );
     }

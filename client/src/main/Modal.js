@@ -1,7 +1,7 @@
 import React from "react";
-// import Moment from "moment";
 import { FormGroup, FormControl, Button, Modal } from "react-bootstrap";
 import Datetime from "react-datetime";
+import moment from "moment";
 
 function ModalComponent(props) {
     const modalStyles = {

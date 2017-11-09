@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import EditClientContainer from "./edit-client/Container";
+import moment from "moment";
 
 function ClientRenderComponent(props) {
     const cardStyles = {
@@ -42,7 +43,7 @@ function ClientRenderComponent(props) {
                     Session Type: {props.client.sessionType}
                 </h4>
                 <h4 style={textStyles}>
-                    Session Date: {props.client.sessionDate}
+                    Session Date: {moment(props.client.sessionDate).format("lll")}
                 </h4>
                 <h4 style={textStyles}>
                     <span style={{ width: "50%" }}>

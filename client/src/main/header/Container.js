@@ -13,7 +13,7 @@ class HeaderContainer extends React.Component {
                 name: "",
                 quote: 0,
                 sessionType: "",
-                sessionDate: {},
+                sessionDate: Date.now(),
                 specialRequests: ""
             }
         };
@@ -62,6 +62,7 @@ class HeaderContainer extends React.Component {
     handleSaveSubmit(e) {
         e.preventDefault();
         this.props.addClient(this.state.inputs);
+        this.setState({ showModal: false });
     }
 
     render() {

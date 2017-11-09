@@ -42,7 +42,7 @@ function ClientRenderComponent(props) {
                     Session Type: {props.client.sessionType}
                 </h4>
                 <h4 style={textStyles}>
-                    Session Date: {props.client.sessionDate}
+                    Session Date:  {props.client.sessionDate}
                 </h4>
                 <h4 style={textStyles}>
                     <span style={{ width: "50%" }}>

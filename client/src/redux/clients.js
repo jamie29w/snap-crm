@@ -74,6 +74,9 @@ export default function clients(prevClients = [], action) {
                 })
                 .reverse();
         case ADD_CLIENT:
+            action.client.sessionDate = moment(
+                action.client.sessionDate
+            ).format("lll");
             return [action.client, ...newClients];
         case DELETE_CLIENT:
             return newClients.filter(client => {

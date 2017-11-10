@@ -1,5 +1,12 @@
 import React from "react";
-import { FormGroup, FormControl, Button, Modal } from "react-bootstrap";
+import {
+    FormGroup,
+    FormControl,
+    Button,
+    Modal,
+    ToggleButton
+} from "react-bootstrap";
+import Datetime from "react-datetime";
 
 function ModalComponent(props) {
     const modalStyles = {
@@ -17,18 +24,32 @@ function ModalComponent(props) {
         color: "#FAFAFA"
     };
 
-    const colStyles = {
-        position: "relative",
-        top: "0",
-        width: "50%",
-        display: "inline-block"
-    };
     const rowStyles = {
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between"
+    };
+
+    const colStyles = {
+        width: "50%",
+        flex: "0 1 auto"
+    };
+    const inputStyles = {
         width: "90%",
         marginLeft: "5%",
         marginRight: "5%",
+        marginBottom: "5px",
         color: "black"
     };
+    const shortInputStyles = {
+        width: "88%",
+        marginLeft: "5%",
+        marginRight: "5%",
+        marginBottom: "5px",
+        color: "black"
+    };
+
     const textAreaStyles = {
         color: "black",
         minWidth: "95%",
@@ -39,9 +60,21 @@ function ModalComponent(props) {
         height: "20vh"
     };
 
-    // const buttonStyles = {
-    //     marginLeft: "2.5%"
-    // };
+    const paidRow = {
+        display: "flex",
+        width: "100%"
+    };
+    const checkboxDiv = {
+        width: "25%"
+    };
+    const checkboxStyles = {
+        margin: "0% 25%"
+    };
+
+    const paidInputStyles = {
+        width: "100%",
+        marginLeft: "5%"
+    };
     return (
         <Modal show={props.show} onHide={props.onHide} style={modalStyles}>
             <Modal.Header style={headerStyles} closeButton>
@@ -50,41 +83,104 @@ function ModalComponent(props) {
             <Modal.Body style={bodyStyles}>
                 <form onSubmit={props.handleSaveSubmit}>
                     <FormGroup>
-                        <div style={colStyles}>
-                            Name:
-                            <FormControl
-                                style={rowStyles}
-                                value={props.inputs.name}
-                                onChange={props.handleChange}
-                                name="name"
-                                type="text"
-                            />
-                            Quote:
-                            <FormControl
-                                style={rowStyles}
-                                onChange={props.handleChange}
-                                value={props.inputs.quote}
-                                name="quote"
-                                type="number"
-                            />
-                        </div>
-                        <div style={colStyles}>
-                            Session Type:
-                            <FormControl
-                                style={rowStyles}
-                                onChange={props.handleChange}
-                                value={props.inputs.sessionType}
-                                name="sessionType"
-                                type="text"
-                            />
-                            Session Date:
-                            <FormControl
-                                style={rowStyles}
-                                onChange={props.handleChange}
-                                value={props.inputs.sessionDate}
-                                name="sessionDate"
-                                type="text"
-                            />
+                        <div style={rowStyles}>
+                            <div style={colStyles}>
+                                Name:
+                                <FormControl
+                                    style={inputStyles}
+                                    value={props.inputs.name}
+                                    onChange={props.handleChange}
+                                    name="name"
+                                    type="text"
+                                />
+                                Session Type:
+                                <FormControl
+                                    style={inputStyles}
+                                    onChange={props.handleChange}
+                                    value={props.inputs.sessionType}
+                                    name="sessionType"
+                                    type="text"
+                                />
+                                Session Location:
+                                <FormControl
+                                    style={inputStyles}
+                                    onChange={props.handleChange}
+                                    value={props.inputs.sessionLocation}
+                                    name="sessionLocation"
+                                    type="text"
+                                />
+                                <div style={paidRow}>
+                                    <div
+                                        style={{
+                                            checkboxDiv
+                                        }}>
+                                        Paid:
+                                        <ToggleButton
+                                            style={checkboxStyles}
+                                            onChange={props.handleChange}
+                                            checked={
+                                                props.inputs.depositPaid ===
+                                                true
+                                            }
+                                            name="depositPaid"
+                                            type="checkbox"
+                                            value={
+                                                props.inputs.depositPaid ||
+                                                false
+                                            }
+                                        />
+                                    </div>
+                                    <div style={paidInputStyles}>
+                                        Deposit:
+                                        <FormControl
+                                            style={shortInputStyles}
+                                            onChange={props.handleChange}
+                                            value={props.inputs.deposit}
+                                            name="deposit"
+                                            type="number"
+                                        />
+                                    </div>
+                                </div>
+                                <div style={paidRow}>
+                                    <div style={checkboxDiv}>
+                                        Paid:
+                                        <ToggleButton
+                                            style={checkboxStyles}
+                                            onChange={props.handleChange}
+                                            checked={
+                                                props.inputs.quotePaid === true
+                                            }
+                                            name="quotePaid"
+                                            type="checkbox"
+                                            value={
+                                                props.inputs.quotePaid || false
+                                            }
+                                        />
+                                    </div>
+                                    <div style={paidInputStyles}>
+                                        Quote:
+                                        <FormControl
+                                            style={shortInputStyles}
+                                            onChange={props.handleChange}
+                                            value={props.inputs.quote}
+                                            name="quote"
+                                            type="number"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style={colStyles}>
+                                Session Date & Time:
+                                <Datetime
+                                    style={inputStyles}
+                                    onChange={props.handleDateChange}
+                                    name="sessionDate"
+                                    dateFormat={"ll"}
+                                    value={props.inputs.sessionDate}
+                                    input={false}
+                                />
+                            </div>
                         </div>
                         <div>
                             Special Requests:

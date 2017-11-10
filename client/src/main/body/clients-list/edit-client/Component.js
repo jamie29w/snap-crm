@@ -20,6 +20,7 @@ function EditClientComponent(props) {
                 handleSaveSubmit={props.handleSaveSubmit}
                 inputs={props.inputs}
                 closeModal={props.closeModal}
+                handleDateChange={props.handleDateChange}
             />
         </div>
     );

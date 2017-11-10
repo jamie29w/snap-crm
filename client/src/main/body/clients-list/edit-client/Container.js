@@ -2,6 +2,7 @@ import React from "react";
 import EditClientComponent from "./Component";
 import { clientActions } from "../../../../redux/clients";
 import { connect } from "react-redux";
+import moment from "moment";
 
 class EditClientContainer extends React.Component {
     constructor(props) {
@@ -11,8 +12,14 @@ class EditClientContainer extends React.Component {
             inputs: {
                 name: this.props.client.name,
                 quote: this.props.client.quote,
+                quotePaid: this.props.client.quotePaid,
+                deposit: this.props.client.deposit,
+                depositPaid: this.props.client.depositPaid,
                 sessionType: this.props.client.sessionType,
-                sessionDate: this.props.client.sessionDate,
+                sessionLocation: this.props.client.sessionLocation,
+                sessionDate: moment(this.props.client.sessionDate).format(
+                    "lll"
+                ),
                 specialRequests: this.props.client.specialRequests
             }
         };
@@ -21,6 +28,7 @@ class EditClientContainer extends React.Component {
         this.closeModal = this.closeModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSaveSubmit = this.handleSaveSubmit.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
     closeModal() {
@@ -28,8 +36,21 @@ class EditClientContainer extends React.Component {
     }
 
     openModal() {
-        console.log(this.props);
         this.setState({ showModal: true });
+    }
+
+    handleDateChange(mmtDT) {
+        this.setState(prevState => {
+            if (mmtDT !== "Invalid date") {
+                return {
+                    prevState,
+                    inputs: {
+                        ...prevState.inputs,
+                        sessionDate: mmtDT._d
+                    }
+                };
+            } else return prevState;
+        });
     }
 
     handleChange(e) {
@@ -39,16 +60,19 @@ class EditClientContainer extends React.Component {
                 ...prevState,
                 inputs: {
                     ...prevState.inputs,
-                    [e.target.name]: e.target.value
+                    [e.target.name]:
+                        e.target.type === "checkbox"
+                            ? e.target.checked
+                            : e.target.value
                 }
             };
         });
-        console.log(this.state.inputs);
     }
 
     handleSaveSubmit(e) {
         e.preventDefault();
         this.props.editClient(this.props.id, this.state.inputs);
+        this.setState({ showModal: false });
     }
 
     render() {
@@ -60,6 +84,7 @@ class EditClientContainer extends React.Component {
                 handleChange={this.handleChange}
                 handleSaveSubmit={this.handleSaveSubmit}
                 inputs={this.state.inputs}
+                handleDateChange={this.handleDateChange}
             />
         );
     }

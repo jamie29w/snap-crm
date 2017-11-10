@@ -6,45 +6,125 @@ function HeaderComponent(props) {
     const headerDivStyles = {
         backgroundColor: "rgba(18, 51, 66, 0.8)",
         width: "100%",
-        height: "35vh",
-        minHeight: "200px",
+        height: "20vh",
+        minHeight: "170px",
         display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        justifyContent: "space-around"
+        alignItems: "flex-end",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        transition: "all ease-in-out 0.5s",
+        position: "fixed",
+        flexWrap: "no-wrap"
     };
+
+    const shortHeaderDivStyles = {
+        ...headerDivStyles,
+        height: "10vh",
+        minHeight: "85px"
+    };
+
     const containerStyles = {
         flexWrap: "nowrap",
-        marginLeft: "auto",
-        marginRight: "auto"
+        margin: "20px",
+        transition: "all ease-in-out 0.5s"
     };
-    const snapStyle = {
+
+    const shortContainerStyles = {
+        ...containerStyles,
+        margin: "10px"
+    };
+
+    const snapStyles = {
         fontFamily: "'Yellowtail', cursive",
         fontSize: "6.6em",
         display: "inline",
         textShadow: "0 0 25px #FAFAFA",
         marginRight: "2px",
-        color: "rgba(51, 51, 51, 0.98)"
+        color: "rgba(51, 51, 51, 0.98)",
+        transition: "all ease-in-out 0.5s"
     };
-    const crmStyle = {
+
+    const shortSnapStyles = {
+        ...snapStyles,
+        fontSize: "4.4em"
+    };
+
+    const crmStyles = {
         fontFamily: "'Raleway', sans-serif",
         fontWeight: "300",
         fontSize: "6em",
         display: "inline",
         color: "#FAFAFA",
-        marginLeft: "2px"
+        marginLeft: "2px",
+        transition: "all ease-in-out 0.5s"
+    };
+
+    const shortCrmStyles = {
+        ...crmStyles,
+        fontSize: "4em"
+    };
+
+    const buttonStyles = {
+        padding: "10px 15px",
+        fontSize: "1.3em",
+        transition: "all ease-in-out 0.5s"
+    };
+
+    const shortButtonStyles = {
+        ...buttonStyles,
+        fontSize: "1em"
     };
 
     return (
         <div>
-            <div style={headerDivStyles}>
-                <div style={containerStyles}>
-                    <h1 style={snapStyle}>Snap</h1>
-                    <h1 style={crmStyle}>CRM</h1>
+            <div
+                style={
+                    props.scrollHeight < 5
+                        ? headerDivStyles
+                        : shortHeaderDivStyles
+                }>
+                <div
+                    style={
+                        props.scrollHeight < 5
+                            ? containerStyles
+                            : shortContainerStyles
+                    }>
+                    <h1
+                        style={
+                            props.scrollHeight < 5
+                                ? snapStyles
+                                : shortSnapStyles
+                        }>
+                        Snap
+                    </h1>
+                    <h1
+                        style={
+                            props.scrollHeight < 5 ? crmStyles : shortCrmStyles
+                        }>
+                        CRM
+                    </h1>
                 </div>
-                <div style={containerStyles}>
+                <div
+                    style={
+                        props.scrollHeight < 5
+                            ? containerStyles
+                            : shortContainerStyles
+                    }>
                     <Button
-                        style={{ padding: "10px 15px", fontSize: "1.3em" }}
+                        style={
+                            props.scrollHeight < 5
+                                ? buttonStyles
+                                : shortButtonStyles
+                        }
+                        className="buttonClass">
+                        Visible: All Clients
+                    </Button>
+                    <Button
+                        style={
+                            props.scrollHeight < 5
+                                ? buttonStyles
+                                : shortButtonStyles
+                        }
                         onClick={props.openModal}
                         className="buttonClass">
                         Add a Client
@@ -58,6 +138,7 @@ function HeaderComponent(props) {
                 handleSaveSubmit={props.handleSaveSubmit}
                 inputs={props.inputs}
                 closeModal={props.closeModal}
+                handleDateChange={props.handleDateChange}
             />
         </div>
     );

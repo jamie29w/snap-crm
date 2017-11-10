@@ -64,16 +64,20 @@ export default function clients(prevClients = [], action) {
     switch (action.type) {
         case LOAD_CLIENTS:
             return action.clients.reverse();
+
         case ADD_CLIENT:
             return [action.client, ...newClients];
+
         case DELETE_CLIENT:
             return newClients.filter(client => {
-                return client._id === action.id ? false : true;
+                return client._id !== action.id;
             });
+
         case EDIT_CLIENT:
             return newClients.map(client => {
                 return client._id === action.id ? action.editedClient : client;
             });
+
         default:
             return prevClients;
     }

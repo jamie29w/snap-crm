@@ -7,9 +7,11 @@ function BodyContainer() {
         background: `url(${backgroundUrl}) no-repeat center center`,
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
-
-        minHeight: "60vh",
-        width: "100%"
+        minHeight: "95vh",
+        width: "100%",
+        paddingTop: "170px",
+        paddingLeft: "2.5%",
+        paddingRight: "2.5%"
     };
 
     return (

@@ -2,6 +2,7 @@ import React from "react";
 import EditClientComponent from "./Component";
 import { clientActions } from "../../../../redux/clients";
 import { connect } from "react-redux";
+import moment from "moment";
 
 class EditClientContainer extends React.Component {
     constructor(props) {
@@ -16,10 +17,13 @@ class EditClientContainer extends React.Component {
                 depositPaid: this.props.client.depositPaid,
                 sessionType: this.props.client.sessionType,
                 sessionLocation: this.props.client.sessionLocation,
-                sessionDate: this.props.client.sessionDate,
+                sessionDate: moment(this.props.client.sessionDate).format(
+                    "lll"
+                ),
                 specialRequests: this.props.client.specialRequests
             }
         };
+        console.log(this.state.inputs.sessionDate);
 
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);

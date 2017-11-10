@@ -64,33 +64,21 @@ export default function clients(prevClients = [], action) {
     let newClients = [...prevClients];
     switch (action.type) {
         case LOAD_CLIENTS:
-            console.log(action.clients);
-            return action.clients
-                .map(client => {
-                    client.sessionDate = moment(client.sessionDate).format(
-                        "lll"
-                    );
-                    return client;
-                })
-                .reverse();
+            return action.clients.reverse()
+
         case ADD_CLIENT:
-            action.client.sessionDate = moment(
-                action.client.sessionDate
-            ).format("lll");
             return [action.client, ...newClients];
+
         case DELETE_CLIENT:
             return newClients.filter(client => {
-                return client._id === action.id ? false : true;
+                return client._id !== action.id;
             });
+
         case EDIT_CLIENT:
             return newClients.map(client => {
-                if (client._id === action.id) {
-                    action.editedClient.sessionDate = moment(
-                        action.editedClient.sessionDate
-                    ).format("lll");
-                    return action.editedClient;
-                } else return client;
+                return client._id === action.id ? action.editedClient : client;
             });
+
         default:
             return prevClients;
     }

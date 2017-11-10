@@ -1,5 +1,4 @@
 import axios from "axios";
-import moment from "moment";
 
 const clientsUrl = "http://localhost:8900/clients/";
 
@@ -64,7 +63,7 @@ export default function clients(prevClients = [], action) {
     let newClients = [...prevClients];
     switch (action.type) {
         case LOAD_CLIENTS:
-            return action.clients.reverse()
+            return action.clients.reverse();
 
         case ADD_CLIENT:
             return [action.client, ...newClients];

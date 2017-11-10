@@ -40,7 +40,6 @@ class HeaderContainer extends React.Component {
     }
 
     handleDateChange(mmtDT) {
-        console.log(mmtDT);
         this.setState(prevState => {
             if (mmtDT !== "Invalid date") {
                 return {
@@ -53,18 +52,6 @@ class HeaderContainer extends React.Component {
             } else return prevState;
         });
     }
-    //previous handleDateChange - keep just in case
-    // handleDateChange(mmtDT) {
-    //     console.log(mmtDT);
-    //     this.setState(prevState => {
-    //         return {
-    //             inputs: {
-    //                 ...prevState.inputs,
-    //                 sessionDate: mmtDT._d
-    //             }
-    //         };
-    //     });
-    // }
 
     handleChange(e) {
         e.persist();
@@ -73,7 +60,10 @@ class HeaderContainer extends React.Component {
                 ...prevState,
                 inputs: {
                     ...prevState.inputs,
-                    [e.target.name]: e.target.value
+                    [e.target.name]:
+                        e.target.type === "checkbox"
+                            ? e.target.checked
+                            : e.target.value
                 }
             };
         });

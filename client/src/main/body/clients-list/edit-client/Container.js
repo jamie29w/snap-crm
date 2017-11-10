@@ -23,7 +23,6 @@ class EditClientContainer extends React.Component {
                 specialRequests: this.props.client.specialRequests
             }
         };
-        console.log(this.state.inputs.sessionDate);
 
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
@@ -37,12 +36,10 @@ class EditClientContainer extends React.Component {
     }
 
     openModal() {
-        console.log(this.props);
         this.setState({ showModal: true });
     }
 
     handleDateChange(mmtDT) {
-        console.log(mmtDT);
         this.setState(prevState => {
             if (mmtDT !== "Invalid date") {
                 return {
@@ -55,18 +52,6 @@ class EditClientContainer extends React.Component {
             } else return prevState;
         });
     }
-    //previous handleDateChange - keep just in case:
-    // handleDateChange(mmtDT) {
-    //     console.log(mmtDT);
-    //     this.setState(prevState => {
-    //         return {
-    //             inputs: {
-    //                 ...prevState.inputs,
-    //                 sessionDate: mmtDT._d
-    //             }
-    //         };
-    //     });
-    // }
 
     handleChange(e) {
         e.persist();
@@ -75,11 +60,13 @@ class EditClientContainer extends React.Component {
                 ...prevState,
                 inputs: {
                     ...prevState.inputs,
-                    [e.target.name]: e.target.value
+                    [e.target.name]:
+                        e.target.type === "checkbox"
+                            ? e.target.checked
+                            : e.target.value
                 }
             };
         });
-        console.log(this.state.inputs);
     }
 
     handleSaveSubmit(e) {

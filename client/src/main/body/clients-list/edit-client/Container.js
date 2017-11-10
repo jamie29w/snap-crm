@@ -11,6 +11,9 @@ class EditClientContainer extends React.Component {
             inputs: {
                 name: this.props.client.name,
                 quote: this.props.client.quote,
+                quotePaid: this.props.client.quotePaid,
+                deposit: this.props.client.deposit,
+                depositPaid: this.props.client.depositPaid,
                 sessionType: this.props.client.sessionType,
                 sessionDate: this.props.client.sessionDate,
                 specialRequests: this.props.client.specialRequests
@@ -66,7 +69,6 @@ class EditClientContainer extends React.Component {
     }
 
     render() {
-        // console.log(this.state);
         return (
             <EditClientComponent
                 openModal={this.openModal}

@@ -8,8 +8,10 @@ const clientSchema = new Schema({
     },
     sessionType: String,
     sessionDate: Date,
+    deposit: Number,
+    depositPaid: Boolean,
     quote: Number,
-    paid: Boolean,
+    quotePaid: Boolean,
     specialRequests: String
 });
 

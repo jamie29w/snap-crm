@@ -69,6 +69,9 @@ class HeaderContainer extends React.Component {
             inputs: {
                 name: "",
                 quote: 0,
+                quotePaid: false,
+                deposit: 0,
+                depositPaid: false,
                 sessionType: "",
                 sessionDate: Date.now(),
                 specialRequests: ""

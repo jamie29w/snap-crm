@@ -1,7 +1,6 @@
 import React from "react";
 import ModalComponent from "../Modal";
 import { Button } from "react-bootstrap";
-// import Media from "react-media";
 
 function HeaderComponent(props) {
     const headerDivStyles = {
@@ -14,7 +13,8 @@ function HeaderComponent(props) {
         flexDirection: "row",
         justifyContent: "space-between",
         transition: "all ease-in-out 0.5s",
-        position: "fixed"
+        position: "fixed",
+        flexWrap: "no-wrap"
     };
 
     const shortHeaderDivStyles = {
@@ -116,7 +116,6 @@ function HeaderComponent(props) {
                                 ? buttonStyles
                                 : shortButtonStyles
                         }
-                        onClick={props.openModal}
                         className="buttonClass">
                         Visible: All Clients
                     </Button>

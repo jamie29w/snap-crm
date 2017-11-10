@@ -13,7 +13,11 @@ class HeaderContainer extends React.Component {
             inputs: {
                 name: "",
                 quote: 0,
+                quotePaid: false,
+                deposit: 0,
+                depositPaid: false,
                 sessionType: "",
+                sessionLocation: "",
                 sessionDate: Date.now(),
                 specialRequests: ""
             }
@@ -38,14 +42,29 @@ class HeaderContainer extends React.Component {
     handleDateChange(mmtDT) {
         console.log(mmtDT);
         this.setState(prevState => {
-            return {
-                inputs: {
-                    ...prevState.inputs,
-                    sessionDate: mmtDT._d
-                }
-            };
+            if (mmtDT !== "Invalid date") {
+                return {
+                    prevState,
+                    inputs: {
+                        ...prevState.inputs,
+                        sessionDate: mmtDT._d
+                    }
+                };
+            } else return prevState;
         });
     }
+    //previous handleDateChange - keep just in case
+    // handleDateChange(mmtDT) {
+    //     console.log(mmtDT);
+    //     this.setState(prevState => {
+    //         return {
+    //             inputs: {
+    //                 ...prevState.inputs,
+    //                 sessionDate: mmtDT._d
+    //             }
+    //         };
+    //     });
+    // }
 
     handleChange(e) {
         e.persist();
@@ -58,7 +77,6 @@ class HeaderContainer extends React.Component {
                 }
             };
         });
-        // console.log(this.state.inputs);
     }
 
     handleSaveSubmit(e) {
@@ -69,6 +87,9 @@ class HeaderContainer extends React.Component {
             inputs: {
                 name: "",
                 quote: 0,
+                quotePaid: false,
+                deposit: 0,
+                depositPaid: false,
                 sessionType: "",
                 sessionDate: Date.now(),
                 specialRequests: ""
@@ -91,7 +112,6 @@ class HeaderContainer extends React.Component {
                 scrollHeight: percent
             };
         });
-        console.log(this.state.scrollHeight);
     }
 
     handleScroll() {

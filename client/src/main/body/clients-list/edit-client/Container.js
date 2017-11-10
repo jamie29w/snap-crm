@@ -15,6 +15,7 @@ class EditClientContainer extends React.Component {
                 deposit: this.props.client.deposit,
                 depositPaid: this.props.client.depositPaid,
                 sessionType: this.props.client.sessionType,
+                sessionLocation: this.props.client.sessionLocation,
                 sessionDate: this.props.client.sessionDate,
                 specialRequests: this.props.client.specialRequests
             }
@@ -39,14 +40,29 @@ class EditClientContainer extends React.Component {
     handleDateChange(mmtDT) {
         console.log(mmtDT);
         this.setState(prevState => {
-            return {
-                inputs: {
-                    ...prevState.inputs,
-                    sessionDate: mmtDT._d
-                }
-            };
+            if (mmtDT !== "Invalid date") {
+                return {
+                    prevState,
+                    inputs: {
+                        ...prevState.inputs,
+                        sessionDate: mmtDT._d
+                    }
+                };
+            } else return prevState;
         });
     }
+    //previous handleDateChange - keep just in case:
+    // handleDateChange(mmtDT) {
+    //     console.log(mmtDT);
+    //     this.setState(prevState => {
+    //         return {
+    //             inputs: {
+    //                 ...prevState.inputs,
+    //                 sessionDate: mmtDT._d
+    //             }
+    //         };
+    //     });
+    // }
 
     handleChange(e) {
         e.persist();

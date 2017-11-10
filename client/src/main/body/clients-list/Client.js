@@ -23,43 +23,66 @@ function ClientRenderComponent(props) {
     const nameStyles = {
         color: "rgba(250, 250, 250, 0.95)",
         fontFamily: "'Yellowtail', cursive",
-        textShadow: "0 0 25px rgba(51, 51, 51, 0.98)"
+        textShadow: "0 0 25px rgba(51, 51, 51, 0.98)",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
     };
 
-    const textStyles = {
+    const keyStyles = {
         color: "inherit",
         fontFamily: "'Raleway', sans-serif",
-        textShadow: "0 0 40px rgba(250, 250, 250, 0.95)"
+        fontSize: "1.3em",
+        maxHeight: "100px",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+    };
+    const altKeyStyles = {
+        ...keyStyles,
+        display: "flex",
+        justifyContent: "space-between"
     };
 
-    const buttonContainer = {};
+    const valueStyles = {
+        ...keyStyles,
+        fontSize: ".8em"
+    };
 
     return (
         <div style={cardStyles}>
             <div>
                 <h2 style={nameStyles}>{props.client.name}</h2>
-                <h4 style={textStyles}>
-                    Session Type: {props.client.sessionType}
-                </h4>
-                <h4 style={textStyles}>
-                    Session Date:  {props.client.sessionDate}
-                </h4>
-                <h4 style={textStyles}>
+                <div style={keyStyles}>
+                    Session Type:{" "}
+                    <span style={valueStyles}>{props.client.sessionType}</span>
+                </div>
+                <div style={keyStyles}>
+                    Session Date:{" "}
+                    <span style={valueStyles}>{props.client.sessionDate}</span>
+                </div>
+                <div style={altKeyStyles}>
                     <span style={{ width: "50%" }}>
-                        Quote: ${props.client.quote}
+                        Quote:{" "}
+                        <span style={valueStyles}>${props.client.quote}</span>
                     </span>
                     <span style={{ width: "50%" }}>
                         {" "}
-                        Paid: {props.client.paid ? "Yes" : "Not Yet"}
+                        Paid:{" "}
+                        <span style={valueStyles}>
+                            {props.client.paid ? "Yes" : "Not Yet"}
+                        </span>
                     </span>
-                </h4>
-                <h4 style={textStyles}>
-                    Special Requests/Notes:{" "}
-                    {props.client.specialRequests || "N/A"}
-                </h4>
+                </div>
+                <div style={keyStyles}>Special Requests/Notes:</div>
+                <div style={keyStyles}>
+                    <span style={valueStyles}>
+                        {props.client.specialRequests || "N/A"}
+                    </span>
+                </div>
             </div>
 
-            <div style={buttonContainer}>
+            <div>
                 <Button
                     className="buttonClass"
                     onClick={() => {

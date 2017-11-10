@@ -18,16 +18,9 @@ function HeaderComponent(props) {
     };
 
     const shortHeaderDivStyles = {
-        backgroundColor: "rgba(18, 51, 66, 0.8)",
-        width: "100%",
+        ...headerDivStyles,
         height: "10vh",
-        minHeight: "85px",
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        transition: "all ease-in-out 0.5s",
-        position: "fixed"
+        minHeight: "85px"
     };
 
     const containerStyles = {
@@ -37,12 +30,11 @@ function HeaderComponent(props) {
     };
 
     const shortContainerStyles = {
-        flexWrap: "nowrap",
-        margin: "10px",
-        transition: "all ease-in-out 0.5s"
+        ...containerStyles,
+        margin: "10px"
     };
 
-    const snapStyle = {
+    const snapStyles = {
         fontFamily: "'Yellowtail', cursive",
         fontSize: "6.6em",
         display: "inline",
@@ -52,17 +44,12 @@ function HeaderComponent(props) {
         transition: "all ease-in-out 0.5s"
     };
 
-    const shortSnapStyle = {
-        fontFamily: "'Yellowtail', cursive",
-        fontSize: "4.4em",
-        display: "inline",
-        textShadow: "0 0 25px #FAFAFA",
-        marginRight: "2px",
-        color: "rgba(51, 51, 51, 0.98)",
-        transition: "all ease-in-out 0.5s"
+    const shortSnapStyles = {
+        ...snapStyles,
+        fontSize: "4.4em"
     };
 
-    const crmStyle = {
+    const crmStyles = {
         fontFamily: "'Raleway', sans-serif",
         fontWeight: "300",
         fontSize: "6em",
@@ -72,14 +59,9 @@ function HeaderComponent(props) {
         transition: "all ease-in-out 0.5s"
     };
 
-    const shortCrmStyle = {
-        fontFamily: "'Raleway', sans-serif",
-        fontWeight: "300",
-        fontSize: "4em",
-        display: "inline",
-        color: "#FAFAFA",
-        marginLeft: "2px",
-        transition: "all ease-in-out 0.5s"
+    const shortCrmStyles = {
+        ...crmStyles,
+        fontSize: "4em"
     };
 
     const buttonStyles = {
@@ -89,9 +71,8 @@ function HeaderComponent(props) {
     };
 
     const shortButtonStyles = {
-        padding: "8px 10px",
-        fontSize: "1em",
-        transition: "all ease-in-out 0.5s"
+        ...buttonStyles,
+        fontSize: "1em"
     };
 
     return (
@@ -110,13 +91,15 @@ function HeaderComponent(props) {
                     }>
                     <h1
                         style={
-                            props.scrollHeight < 5 ? snapStyle : shortSnapStyle
+                            props.scrollHeight < 5
+                                ? snapStyles
+                                : shortSnapStyles
                         }>
                         Snap
                     </h1>
                     <h1
                         style={
-                            props.scrollHeight < 5 ? crmStyle : shortCrmStyle
+                            props.scrollHeight < 5 ? crmStyles : shortCrmStyles
                         }>
                         CRM
                     </h1>

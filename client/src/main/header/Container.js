@@ -80,6 +80,10 @@ class HeaderContainer extends React.Component {
         window.addEventListener("scroll", this.handleScroll);
     }
 
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+    }
+
     scrollState(percent) {
         this.setState(prevState => {
             return {

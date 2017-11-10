@@ -5,7 +5,7 @@ import moment from "moment";
 
 function ClientRenderComponent(props) {
     const cardStyles = {
-        backgroundColor: "rgba(223, 223, 229, .7)",
+        backgroundColor: "rgba(223, 223, 229, 0.7)",
         width: "30%",
         minWidth: "250px",
         maxWidth: "300px",
@@ -18,7 +18,8 @@ function ClientRenderComponent(props) {
         padding: "2px 16px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        borderRadius: "5px"
     };
 
     const nameStyles = {
@@ -68,7 +69,9 @@ function ClientRenderComponent(props) {
                 <h2 style={nameStyles}>{props.client.name}</h2>
                 <div style={keyStyles}>
                     Session Date:{" "}
-                    <div style={valueStyles}>{moment(props.client.sessionDate).format("lll")}</div>
+                    <div style={valueStyles}>
+                        {moment(props.client.sessionDate).format("lll")}
+                    </div>
                 </div>
                 <div style={altKeyStyles}>
                     <div style={{ width: "50%" }}>

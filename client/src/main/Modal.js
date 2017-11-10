@@ -18,19 +18,16 @@ function ModalComponent(props) {
         backgroundColor: "rgba(18, 51, 66, 1)",
         color: "#FAFAFA"
     };
-
     const bodyStyles = {
         backgroundColor: "rgba(18, 51, 66, 0.8)",
         color: "#FAFAFA"
     };
-
     const rowStyles = {
         width: "100%",
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-between"
     };
-
     const colStyles = {
         width: "50%",
         flex: "0 1 auto"
@@ -49,7 +46,6 @@ function ModalComponent(props) {
         marginBottom: "5px",
         color: "black"
     };
-
     const textAreaStyles = {
         color: "black",
         minWidth: "95%",
@@ -59,7 +55,6 @@ function ModalComponent(props) {
         marginBottom: "5px",
         height: "20vh"
     };
-
     const paidRow = {
         display: "flex",
         width: "100%"
@@ -75,6 +70,7 @@ function ModalComponent(props) {
         width: "100%",
         marginLeft: "5%"
     };
+
     return (
         <Modal show={props.show} onHide={props.onHide} style={modalStyles}>
             <Modal.Header style={headerStyles} closeButton>

@@ -7,9 +7,12 @@ const clientSchema = new Schema({
         type: String
     },
     sessionType: String,
+    sessionLocation: String,
     sessionDate: Date,
+    deposit: Number,
+    depositPaid: Boolean,
     quote: Number,
-    paid: Boolean,
+    quotePaid: Boolean,
     specialRequests: String
 });
 

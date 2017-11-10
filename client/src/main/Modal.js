@@ -19,16 +19,22 @@ function ModalComponent(props) {
         color: "#FAFAFA"
     };
 
-    const colStyles = {
-        position: "relative",
-        top: "0",
-        width: "50%",
-        display: "inline-block"
-    };
     const rowStyles = {
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between"
+    };
+
+    const colStyles = {
+        width: "50%",
+        flex: "0 1 auto"
+    };
+    const inputStyles = {
         width: "90%",
         marginLeft: "5%",
         marginRight: "5%",
+        marginBottom: "5px",
         color: "black"
     };
     const textAreaStyles = {
@@ -49,41 +55,61 @@ function ModalComponent(props) {
             <Modal.Body style={bodyStyles}>
                 <form onSubmit={props.handleSaveSubmit}>
                     <FormGroup>
-                        <div style={colStyles}>
-                            Name:
-                            <FormControl
-                                style={rowStyles}
-                                value={props.inputs.name}
-                                onChange={props.handleChange}
-                                name="name"
-                                type="text"
-                            />
-                            Quote:
-                            <FormControl
-                                style={rowStyles}
-                                onChange={props.handleChange}
-                                value={props.inputs.quote}
-                                name="quote"
-                                type="number"
-                            />
-                        </div>
-                        <div style={colStyles}>
-                            Session Type:
-                            <FormControl
-                                style={rowStyles}
-                                onChange={props.handleChange}
-                                value={props.inputs.sessionType}
-                                name="sessionType"
-                                type="text"
-                            />
-                            Session Date & Time:
-                            <Datetime
-                                style={rowStyles}
-                                onChange={props.handleDateChange}
-                                name="sessionDate"
-                                dateFormat={"ll"}
-                                value={props.inputs.sessionDate}
-                            />
+                        <div style={rowStyles}>
+                            <div style={colStyles}>
+                                Name:
+                                <FormControl
+                                    style={inputStyles}
+                                    value={props.inputs.name}
+                                    onChange={props.handleChange}
+                                    name="name"
+                                    type="text"
+                                />
+                                Session Type:
+                                <FormControl
+                                    style={inputStyles}
+                                    onChange={props.handleChange}
+                                    value={props.inputs.sessionType}
+                                    name="sessionType"
+                                    type="text"
+                                />
+                                Session Location:
+                                <FormControl
+                                    style={inputStyles}
+                                    onChange={props.handleChange}
+                                    value={props.inputs.sessionLocation}
+                                    name="sessionLocation"
+                                    type="text"
+                                />
+                                Deposit:
+                                <FormControl
+                                    style={inputStyles}
+                                    onChange={props.handleChange}
+                                    value={props.inputs.deposit}
+                                    name="deposit"
+                                    type="number"
+                                />
+                                Quote:
+                                <FormControl
+                                    style={inputStyles}
+                                    onChange={props.handleChange}
+                                    value={props.inputs.quote}
+                                    name="quote"
+                                    type="number"
+                                />
+                            </div>
+
+                            <div style={colStyles}>
+                                Session Date & Time:
+                                <Datetime
+                                    style={inputStyles}
+                                    onChange={props.handleDateChange}
+                                    name="sessionDate"
+                                    dateFormat={"ll"}
+                                    value={props.inputs.sessionDate}
+                                    input={false}
+                                />
+                            </div>
                         </div>
                         <div>
                             Special Requests:

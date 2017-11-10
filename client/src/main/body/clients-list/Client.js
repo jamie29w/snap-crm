@@ -23,10 +23,7 @@ function ClientRenderComponent(props) {
     const nameStyles = {
         color: "rgba(250, 250, 250, 0.95)",
         fontFamily: "'Yellowtail', cursive",
-        textShadow: "0 0 25px rgba(51, 51, 51, 0.98)",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap"
+        textShadow: "0 0 25px rgba(51, 51, 51, 0.98)"
     };
 
     const keyStyles = {
@@ -46,7 +43,10 @@ function ClientRenderComponent(props) {
 
     const valueStyles = {
         ...keyStyles,
-        fontSize: ".8em"
+        fontSize: ".8em",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
     };
 
     return (

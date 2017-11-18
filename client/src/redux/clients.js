@@ -23,7 +23,7 @@ const addClient = client => {
         axios.post(clientsUrl, client).then(response => {
             dispatch({
                 type: ADD_CLIENT,
-                client
+                client: response.data
             });
         });
     };

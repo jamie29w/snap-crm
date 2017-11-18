@@ -1,3 +1,6 @@
+//Since adding shrinking animation to header, it is not responsive to mobile
+//screen width.
+
 import React from "react";
 import ModalComponent from "../Modal";
 import { Button } from "react-bootstrap";

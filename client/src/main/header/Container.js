@@ -72,6 +72,7 @@ class HeaderContainer extends React.Component {
     handleSaveSubmit(e) {
         e.preventDefault();
         this.props.addClient(this.state.inputs);
+        console.log(this.state);
         this.setState({
             showModal: false,
             inputs: {
@@ -81,6 +82,7 @@ class HeaderContainer extends React.Component {
                 deposit: 0,
                 depositPaid: false,
                 sessionType: "",
+                sessionLocation: "",
                 sessionDate: Date.now(),
                 specialRequests: ""
             }
@@ -89,6 +91,7 @@ class HeaderContainer extends React.Component {
 
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
+        console.log(this.state);
     }
 
     componentWillUnmount() {

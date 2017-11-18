@@ -1,5 +1,5 @@
 //Since adding shrinking animation to header, it is not responsive to mobile
-//screen width.
+//screen width. Also, Visible: All Clietns button is not functional yet.
 
 import React from "react";
 import ModalComponent from "../Modal";

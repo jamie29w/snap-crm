@@ -1,3 +1,5 @@
+//Update Modal flexbox styling for mobile responsiveness
+
 import React from "react";
 import {
     FormGroup,

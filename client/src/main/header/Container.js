@@ -10,7 +10,6 @@ class HeaderContainer extends React.Component {
         this.state = {
             showModal: false,
             scrollHeight: 0,
-            narrow: false,
             inputs: {
                 name: "",
                 quote: 0,

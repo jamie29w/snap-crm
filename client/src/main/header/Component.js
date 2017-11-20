@@ -1,5 +1,5 @@
-//Since adding shrinking animation to header, it is not responsive to mobile
-//screen width. Also, Visible: All Clients button is not functional yet.
+//Visible: All Clients button is not functional yet.
+//Possibly add hamburger button for phone screen sizes later.
 
 import React from "react";
 import ModalComponent from "../Modal";
@@ -12,22 +12,23 @@ function HeaderComponent(props) {
         height: "20vh",
         minHeight: "170px",
         display: "flex",
-        alignItems: "flex-end",
-        flexDirection: "row",
-        justifyContent: "space-between",
+        alignItems: `${props.flexDir ? "flex-start" : "flex-end"}`,
+        flexDirection: `${props.flexDir ? "column" : "row"}`,
+        justifyContent: `${props.flexDir ? "space-around" : "space-between"}`,
         transition: "all ease-in-out 0.5s",
         position: "fixed",
         flexWrap: "no-wrap"
     };
+    console.log(headerDivStyles);
 
     const shortHeaderDivStyles = {
         ...headerDivStyles,
         height: "10vh",
-        minHeight: "85px"
+        minHeight: `${props.flexDir ? "120px" : "85px"}`
     };
 
     const containerStyles = {
-        flexWrap: "nowrap",
+        flexWrap: "wrap",
         margin: "20px",
         transition: "all ease-in-out 0.5s"
     };
@@ -39,7 +40,7 @@ function HeaderComponent(props) {
 
     const snapStyles = {
         fontFamily: "'Yellowtail', cursive",
-        fontSize: "6.6em",
+        fontSize: `${props.flexDir ? "4.4em" : "6.6em"}`,
         display: "inline",
         textShadow: "0 0 25px #FAFAFA",
         marginRight: "2px",
@@ -49,13 +50,13 @@ function HeaderComponent(props) {
 
     const shortSnapStyles = {
         ...snapStyles,
-        fontSize: "4.4em"
+        fontSize: `${props.flexDir ? "3.3em" : "4.4em"}`
     };
 
     const crmStyles = {
         fontFamily: "'Raleway', sans-serif",
         fontWeight: "300",
-        fontSize: "6em",
+        fontSize: `${props.flexDir ? "4em" : "4.4em"}`,
         display: "inline",
         color: "#FAFAFA",
         marginLeft: "2px",
@@ -64,18 +65,18 @@ function HeaderComponent(props) {
 
     const shortCrmStyles = {
         ...crmStyles,
-        fontSize: "4em"
+        fontSize: `${props.flexDir ? "3em" : "4em"}`
     };
 
     const buttonStyles = {
         padding: "10px 15px",
-        fontSize: "1.3em",
+        fontSize: `${props.flexDir ? "1em" : "1.3em"}`,
         transition: "all ease-in-out 0.5s"
     };
 
     const shortButtonStyles = {
         ...buttonStyles,
-        fontSize: "1em"
+        fontSize: `${props.flexDir ? ".75em" : "1em"}`
     };
 
     return (

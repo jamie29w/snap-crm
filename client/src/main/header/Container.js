@@ -10,6 +10,7 @@ class HeaderContainer extends React.Component {
         this.state = {
             showModal: false,
             scrollHeight: 0,
+            narrow: false,
             inputs: {
                 name: "",
                 quote: 0,
@@ -29,6 +30,7 @@ class HeaderContainer extends React.Component {
         this.handleSaveSubmit = this.handleSaveSubmit.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
+        this.handleResize = this.handleResize.bind(this);
     }
 
     closeModal() {
@@ -91,11 +93,13 @@ class HeaderContainer extends React.Component {
 
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
+        window.addEventListener("resize", this.handleResize);
         console.log(this.state);
     }
 
     componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
+        window.addEventListener("resize", this.handleResize);
     }
 
     scrollState(percent) {
@@ -124,6 +128,16 @@ class HeaderContainer extends React.Component {
         this.scrollState(percent);
     }
 
+    handleResize() {
+        let flexDir = window.innerWidth < 750 ? true : false;
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                flexDir
+            };
+        });
+    }
+
     render() {
         return (
             <HeaderComponent
@@ -136,6 +150,7 @@ class HeaderContainer extends React.Component {
                 handleDateChange={this.handleDateChange}
                 handleScroll={this.handleScroll}
                 scrollHeight={this.state.scrollHeight}
+                flexDir={this.state.flexDir}
             />
         );
     }

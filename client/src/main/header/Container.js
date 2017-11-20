@@ -91,17 +91,6 @@ class HeaderContainer extends React.Component {
         });
     }
 
-    componentDidMount() {
-        window.addEventListener("scroll", this.handleScroll);
-        window.addEventListener("resize", this.handleResize);
-        console.log(this.state);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("scroll", this.handleScroll);
-        window.addEventListener("resize", this.handleResize);
-    }
-
     scrollState(percent) {
         this.setState(prevState => {
             return {
@@ -136,6 +125,17 @@ class HeaderContainer extends React.Component {
                 flexDir
             };
         });
+    }
+    componentDidMount() {
+        this.handleResize();
+        window.addEventListener("scroll", this.handleScroll);
+        window.addEventListener("resize", this.handleResize);
+        console.log(this.state);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+        window.addEventListener("resize", this.handleResize);
     }
 
     render() {

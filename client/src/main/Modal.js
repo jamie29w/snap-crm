@@ -22,24 +22,29 @@ function ModalComponent(props) {
     };
     const bodyStyles = {
         backgroundColor: "rgba(18, 51, 66, 0.8)",
-        color: "#FAFAFA"
+        color: "#FAFAFA",
+        minWidth: "275px"
     };
     const rowStyles = {
         width: "100%",
         display: "flex",
+        flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between"
     };
     const colStyles = {
         width: "50%",
-        flex: "0 1 auto"
+        minWidth: "250px",
+        flex: "1 1 auto",
+        margin: "5px 0px"
     };
     const inputStyles = {
         width: "90%",
         marginLeft: "5%",
         marginRight: "5%",
         marginBottom: "5px",
-        color: "black"
+        color: "black",
+        flex: "1 1 auto"
     };
     const shortInputStyles = {
         width: "88%",
@@ -108,10 +113,7 @@ function ModalComponent(props) {
                                     type="text"
                                 />
                                 <div style={paidRow}>
-                                    <div
-                                        style={{
-                                            checkboxDiv
-                                        }}>
+                                    <div style={checkboxDiv}>
                                         Paid:
                                         <ToggleButton
                                             style={checkboxStyles}

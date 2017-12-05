@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const clientsUrl = "http://localhost:8900/clients/";
+const clientsUrl = "/clients/";
 
 const LOAD_CLIENTS = "LOAD_CLIENTS";
 const ADD_CLIENT = "ADD_CLIENT";

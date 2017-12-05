@@ -3,7 +3,7 @@
 
 import React from "react";
 import ModalComponent from "../Modal";
-import { Button } from "react-bootstrap";
+import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 function HeaderComponent(props) {
     const headerDivStyles = {
@@ -79,6 +79,14 @@ function HeaderComponent(props) {
         fontSize: `${props.flexDir ? ".75em" : "1em"}`
     };
 
+    const tooltip = (
+        <Tooltip id="tooltip">
+            Coming soon. Try the{" "}
+            <span style={{ fontStyle: "italic" }}>Add a Client</span> button now
+            instead.
+        </Tooltip>
+    );
+
     return (
         <div>
             <div
@@ -114,15 +122,17 @@ function HeaderComponent(props) {
                             ? containerStyles
                             : shortContainerStyles
                     }>
-                    <Button
-                        style={
-                            props.scrollHeight < 5
-                                ? buttonStyles
-                                : shortButtonStyles
-                        }
-                        className="buttonClass">
-                        Visible: All Clients
-                    </Button>
+                    <OverlayTrigger placement="left" overlay={tooltip}>
+                        <Button
+                            style={
+                                props.scrollHeight < 5
+                                    ? buttonStyles
+                                    : shortButtonStyles
+                            }
+                            className="buttonClass">
+                            Visible: All Clients
+                        </Button>
+                    </OverlayTrigger>
                     <Button
                         style={
                             props.scrollHeight < 5

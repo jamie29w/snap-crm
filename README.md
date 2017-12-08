@@ -9,7 +9,7 @@ Users can:
 
 # How to use
 
-```
+```bash
 //Clone this repository
 git clone https://github.com/jamie29w/snap-crm
 
@@ -35,4 +35,6 @@ yarn start
 
 # Related
 
-Check out the demo version online at [snap-crm.jamiew.io](http://snap-crm.jamiew.io) and feel free to interact with the session details.
+Check out the demo version online at [snap-crm.jamiew.io](http://snap-crm.jamiew.io), and feel free to add, edit, and delete session details. It's there for you to play with.
+
+The rest of my portfolio, resume, and contact info are available at [jamieW.io](http://jamiew.io).

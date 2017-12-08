@@ -1,6 +1,6 @@
 # Snap-CRM
 
-Snap CRM (Customer Relationship Manager) is a responsively designed, lightweight full stack web app designed with my wife's small photography business in mind. It helps her keep track of the details for her upcoming shoots.
+Snap CRM (Customer Relationship Manager) is a responsively designed, lightweight, full stack web app designed with my wife's small photography business in mind. It helps her keep track of the details for her upcoming shoots.
 
 Users can:
 - schedule, update, and delete sessions

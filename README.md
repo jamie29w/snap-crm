@@ -17,7 +17,7 @@ git clone https://github.com/jamie29w/snap-crm
 cd snap-crm
 
 //Install backend dependencies
-yarn add
+yarn
 
 //Spin up the backend
 node start
@@ -27,7 +27,7 @@ node start
 cd snap-crm/client
 
 //Install app dependencies
-yarn add
+yarn
 
 //Run the app
 yarn start

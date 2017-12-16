@@ -122,7 +122,9 @@ function HeaderComponent(props) {
                             ? containerStyles
                             : shortContainerStyles
                     }>
-                    <OverlayTrigger placement="left" overlay={tooltip}>
+                    <OverlayTrigger
+                        placement={props.flexDir ? "bottom" : "left"}
+                        overlay={tooltip}>
                         <Button
                             style={
                                 props.scrollHeight < 5

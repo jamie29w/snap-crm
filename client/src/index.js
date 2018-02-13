@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-let reducer = combineReducers({ clients });
+const reducer = combineReducers({ clients });
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

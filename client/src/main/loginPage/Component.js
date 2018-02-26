@@ -34,11 +34,29 @@ export default function LoginPageComponent(props) {
   return (
     <div style={bodyStyles}>
       <FormGroup>
-        <FormControl style={inputStyles} type="text" placeholder="username" />
-        <FormControl style={inputStyles} type="text" placeholder="password" />
+        <FormControl
+          name="username"
+          value={props.inputs.username}
+          onChange={props.handleChange}
+          style={inputStyles}
+          type="text"
+          placeholder="username"
+        />
+        <FormControl
+          name="password"
+          value={props.inputs.password}
+          onChange={props.handleChange}
+          style={inputStyles}
+          type="text"
+          placeholder="password"
+        />
         <div style={buttonBox}>
-          <Button className="loginButtonClass">Login</Button>
-          <Button className="signupButtonClass">Signup</Button>
+          <Button onClick={props.loginAttempt} className="loginButtonClass">
+            Login
+          </Button>
+          <Button onClick={props.signupAttempt} className="signupButtonClass">
+            Signup
+          </Button>
         </div>
       </FormGroup>
     </div>

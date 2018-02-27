@@ -5,6 +5,7 @@ import './index.css';
 import clientsReducer from './redux/clients';
 import authReducer from './redux/users';
 
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux';
@@ -20,7 +21,9 @@ store.subscribe(() => {
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

@@ -20,7 +20,8 @@
         "now": "^8.5.2",
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
-        "path": "^0.12.7"
+        "path": "^0.12.7",
+        "react-router-dom": "^4.2.2"
     },
     "engines": {
         "node": "6.11.3"

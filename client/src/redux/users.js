@@ -105,7 +105,7 @@ export const authActions = {
 
 //DEFAULT STATE
 let defaultState = {
-  // clients: [],
+  clients: [],
   user: {
     username: '',
     admin: false,

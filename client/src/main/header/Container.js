@@ -34,12 +34,10 @@ class HeaderContainer extends React.Component {
 
   closeModal() {
     this.setState({ showModal: false });
-    console.log(`this.state.showModal is ${this.state.showModal}`);
   }
 
   openModal() {
     this.setState({ showModal: true });
-    console.log(`this.state.showModal is ${this.state.showModal}`);
   }
 
   handleDateChange(mmtDT) {
@@ -73,7 +71,6 @@ class HeaderContainer extends React.Component {
   handleSaveSubmit(e) {
     e.preventDefault();
     this.props.addClient(this.state.inputs);
-    console.log(this.state);
     this.setState({
       showModal: false,
       inputs: {
@@ -129,7 +126,6 @@ class HeaderContainer extends React.Component {
     this.handleResize();
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
-    console.log(this.state);
   }
 
   componentWillUnmount() {

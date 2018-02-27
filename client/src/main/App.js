@@ -12,7 +12,6 @@ import { authActions } from '../redux/users';
 class App extends React.Component {
   componentDidMount() {
     let history = this.props.history;
-    console.log(history);
     this.props.verify(history, history.location.pathname);
   }
 
@@ -22,7 +21,7 @@ class App extends React.Component {
         <HeaderContainer />
         <Switch>
           <Route component={LoginPage} />
-          <ProtectedRoute path="./clients" component={BodyComponent} />
+          <ProtectedRoute path="/profile" component={BodyComponent} />
           <Route component={FooterComponent} />
         </Switch>
       </div>

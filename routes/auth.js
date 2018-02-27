@@ -44,7 +44,7 @@ authRouter.post(
         res.status(201).send({
           success: true,
           user,
-          token: jwt.sign(user, settings.secret, {
+          token: jwt.sign(user.toJSON(), settings.secret, {
             expiresIn: 24 * 60 * 30
           })
         });

@@ -16,20 +16,34 @@ class App extends React.Component {
   }
 
   render() {
+    let isAuthenticated = this.props.authReducer.isAuthenticated;
+    console.log(`App isAuthenticated is`);
+    console.log(isAuthenticated);
     return (
       <div>
         <HeaderContainer />
         <Switch>
-          <Route component={LoginPage} />
+          <Route exact path="/" component={LoginPage} />
           <ProtectedRoute path="/profile" component={BodyComponent} />
-          <Route component={FooterComponent} />
+          <Route
+            component={FooterComponent}
+            style={
+              this.props.isAuthenticated || localStorage.getItem('token')
+                ? { display: 'inherit' }
+                : { display: 'none' }
+            }
+          />
         </Switch>
       </div>
     );
   }
 }
 
-export default withRouter(connect(null, authActions)(App));
+const mapStateToProps = state => {
+  return state;
+};
+
+export default withRouter(connect(mapStateToProps, authActions)(App));
 
 // function App() {
 //   return (

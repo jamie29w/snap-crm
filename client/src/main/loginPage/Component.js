@@ -51,7 +51,7 @@ export default function LoginPageComponent(props) {
           placeholder="password"
         />
         <div style={buttonBox}>
-          <Button onClick={props.loginAttempt} className="loginButtonClass">
+          <Button onClick={props.signinAttempt} className="loginButtonClass">
             Login
           </Button>
           <Button onClick={props.signupAttempt} className="signupButtonClass">

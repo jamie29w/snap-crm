@@ -53,8 +53,10 @@ const signin = (creds, history) => {
   return dispatch => {
     axios.post(authUrl + 'login', creds).then(response => {
       let { token, user, success } = response.data;
+      //these ^^ are console.logging correctly
       localStorage.setItem('token', token);
       dispatch(logon(success, user));
+      //these ^^ are console.logging correctly
       history.push('profile');
     });
   };
@@ -73,6 +75,8 @@ const verify = (history, pathname) => {
       .get(authUrl + 'verify')
       .then(response => {
         let { success, user } = response.data;
+        // console.log('success:');
+        // console.log(success);
         dispatch(logon(success, user));
         history.push(pathname);
       })
@@ -91,7 +95,7 @@ export const authActions = {
 
 //DEFAULT STATE
 let defaultState = {
-  clients: [],
+  // clients: [],
   user: {
     username: '',
     admin: false,
@@ -108,6 +112,8 @@ let defaultState = {
 const authReducer = (state = defaultState, action) => {
   switch (action.type) {
     case LOGON:
+      console.log(`action is`);
+      console.log(action);
       return {
         ...state,
         authErrCode: {

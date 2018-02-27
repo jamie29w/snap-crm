@@ -14,7 +14,7 @@ class LoginPageContainer extends React.Component {
       loggedIn: false
     };
     this.handleChange = this.handleChange.bind(this);
-    this.loginAttempt = this.loginAttempt.bind(this);
+    this.signinAttempt = this.signinAttempt.bind(this);
     this.signupAttempt = this.signupAttempt.bind(this);
   }
 
@@ -27,7 +27,7 @@ class LoginPageContainer extends React.Component {
     });
   }
 
-  loginAttempt() {
+  signinAttempt() {
     this.props.signin(this.state.inputs, this.props.history);
     this.clearInputs();
   }
@@ -66,7 +66,7 @@ class LoginPageContainer extends React.Component {
       <LoginPageComponent
         handleChange={this.handleChange}
         inputs={this.state.inputs}
-        loginAttempt={this.loginAttempt}
+        signinAttempt={this.signinAttempt}
         signupAttempt={this.signupAttempt}
         errMsg={errMsg}
       />

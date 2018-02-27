@@ -16,6 +16,11 @@ axios.interceptors.request.use(config => {
 
 //HELPER FUNCTIONS
 const logon = (success, user) => {
+  // console.log(`at logon helper fxn`);
+  // console.log(`success is:`);
+  // console.log(success);
+  // console.log(`user is:`);
+  // console.log(user);
   return {
     type: LOGON,
     success,
@@ -53,6 +58,11 @@ const signin = (creds, history) => {
   return dispatch => {
     axios.post(authUrl + 'login', creds).then(response => {
       let { token, user, success } = response.data;
+      // console.log(`at signin action fxn`);
+      // console.log(`success is:`);
+      // console.log(success);
+      // console.log(`user is:`);
+      // console.log(user);
       //these ^^ are console.logging correctly
       localStorage.setItem('token', token);
       dispatch(logon(success, user));

@@ -7,7 +7,7 @@ function BodyContainer() {
     background: `url(${backgroundUrl}) no-repeat center center`,
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
-    minHeight: '95vh',
+    minHeight: '100vh',
     width: '100%',
     paddingTop: '170px',
     paddingLeft: '2.5%',

@@ -2,7 +2,6 @@ import React from 'react';
 import LoginPage from './loginPage/Container';
 import HeaderContainer from './header/Container';
 import BodyComponent from './body/Component';
-import FooterComponent from './footer/Component';
 import ProtectedRoute from './ProtectedRoute.js';
 
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -25,14 +24,6 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={LoginPage} />
           <ProtectedRoute path="/profile" component={BodyComponent} />
-          <Route
-            component={FooterComponent}
-            style={
-              this.props.isAuthenticated || localStorage.getItem('token')
-                ? { display: 'inherit' }
-                : { display: 'none' }
-            }
-          />
         </Switch>
       </div>
     );

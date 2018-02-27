@@ -23,6 +23,8 @@ const loadClients = () => {
 const addClient = client => {
   return dispatch => {
     axios.post(clientsUrl, client).then(response => {
+      console.log(response.data);
+      console.log(`response.data is`);
       dispatch({
         type: ADD_CLIENT,
         client: response.data

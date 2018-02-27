@@ -68,9 +68,7 @@ class HeaderContainer extends React.Component {
     });
   }
 
-  handleSaveSubmit(e) {
-    e.preventDefault();
-    this.props.addClient(this.state.inputs);
+  clearInputs() {
     this.setState({
       showModal: false,
       inputs: {
@@ -85,6 +83,15 @@ class HeaderContainer extends React.Component {
         specialRequests: ''
       }
     });
+  }
+
+  handleSaveSubmit(e) {
+    e.preventDefault();
+    this.props.addClient(this.state.inputs);
+    console.log(`handleSaveSubmit this.state.inputs:`);
+    console.log(this.state.inputs);
+
+    this.clearInputs();
   }
 
   scrollState(percent) {
@@ -134,6 +141,8 @@ class HeaderContainer extends React.Component {
   }
 
   render() {
+    console.log(`HeaderContainer this.props:`);
+    console.log(this.props);
     return (
       <HeaderComponent
         openModal={this.openModal}

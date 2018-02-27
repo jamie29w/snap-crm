@@ -51,7 +51,6 @@ class LoginPageContainer extends React.Component {
         }
       };
     });
-    console.log(this.state.inputs);
   }
 
   render() {

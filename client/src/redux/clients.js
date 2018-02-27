@@ -1,36 +1,14 @@
 import axios from 'axios';
 
 const clientsUrl = '/clients/';
-const authUrl = '/auth/';
 
+//ACTION VARS
 const LOAD_CLIENTS = 'LOAD_CLIENTS';
 const ADD_CLIENT = 'ADD_CLIENT';
 const DELETE_CLIENT = 'DELETE_CLIENT';
 const EDIT_CLIENT = 'EDIT_CLIENT';
 
-const LOGON = 'LOGON';
-const HANDLE_AUTH_ERROR = 'HANDLE_AUTH_ERROR';
-
-//HELPER FUNCTIONS
-const logon = (success, user) => {
-  return {
-    type: LOGON,
-    success,
-    user
-  };
-};
-
-const handleAuthError = (key, errCode) => {
-  return {
-    type: HANDLE_AUTH_ERROR,
-    key,
-    errCode
-  };
-};
-
-//ADD SET TOKEN HELPER FUNCTION \\
-
-//ACTIONS
+//CLIENT (AKA SESSION) ACTIONS
 const loadClients = () => {
   return dispatch => {
     axios.get(clientsUrl).then(response => {
@@ -84,7 +62,7 @@ export const clientActions = {
 };
 
 //REDUCER
-export default function clients(prevClients = [], action) {
+function clientsReducer(prevClients = [], action) {
   let newClients = [...prevClients];
   switch (action.type) {
     case LOAD_CLIENTS:
@@ -107,3 +85,5 @@ export default function clients(prevClients = [], action) {
       return prevClients;
   }
 }
+
+export default clientsReducer;

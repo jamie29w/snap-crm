@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './main/App';
 import './index.css';
-import clients from './redux/clients';
+import clientsReducer from './redux/clients';
+import authReducer from './redux/users';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-let reducer = combineReducers({ clients });
+let reducer = combineReducers({ clientsReducer, authReducer });
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

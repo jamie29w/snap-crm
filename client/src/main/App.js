@@ -3,6 +3,7 @@ import LoginPage from './loginPage/Container';
 import HeaderContainer from './header/Container';
 import BodyComponent from './body/Component';
 import FooterComponent from './footer/Component';
+import ProtectedRoute from './ProtectedRoute.js';
 
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -16,12 +17,15 @@ class App extends React.Component {
   }
 
   render() {
+    const isAuthenticated = this.props.isAuthenticated;
     return (
       <div>
         <HeaderContainer />
-        <LoginPage />
-        {/* <BodyComponent />
-        <FooterComponent /> */}
+        <Switch>
+          <Route component={LoginPage} />
+          <ProtectedRoute path="./clients" component={BodyComponent} />
+          <Route component={FooterComponent} />
+        </Switch>
       </div>
     );
   }

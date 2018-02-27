@@ -35,13 +35,13 @@ authRouter.post(
           err
         });
       } else if (user === null) {
-        req.status(404).send({
+        res.status(404).send({
           success: false,
           err: 'That user does not exist.'
         });
       } else {
         user = user.withoutPassword();
-        req.status(201).send({
+        res.status(201).send({
           success: true,
           user,
           token: jwt.sign(user, settings.secret, {
@@ -77,7 +77,7 @@ authRouter.post('/signup', (req, res) => {
           res.status(201).send({
             success: true,
             savedUser,
-            token: jwt.sign(user, settings.secret, {
+            token: jwt.sign(savedUser.toJSON(), settings.secret, {
               expiresIn: 24 * 60 * 30
             })
           });

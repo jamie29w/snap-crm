@@ -35,9 +35,8 @@ const handleAuthError = (key, errCode) => {
 const signup = (creds, history) => {
   return dispatch => {
     axios
-      .post(authUrl + 'signup/', creds)
+      .post(authUrl + 'signup', creds)
       .then(response => {
-        console.log(response.data);
         let { token, user, success } = response.data;
         localStorage.setItem('token', token);
         dispatch(logon(success, user));
@@ -52,12 +51,11 @@ const signup = (creds, history) => {
 
 const signin = (creds, history) => {
   return dispatch => {
-    axios.post(authUrl + 'login/', creds).then(response => {
-      console.log(response.data);
+    axios.post(authUrl + 'login', creds).then(response => {
       let { token, user, success } = response.data;
       localStorage.setItem('token', token);
       dispatch(logon(success, user));
-      history.push('/profile');
+      history.push('profile');
     });
   };
 };

@@ -59,6 +59,7 @@ export default function LoginPageComponent(props) {
           </Button>
         </div>
       </FormGroup>
+      <p style={{ color: 'red' }}>{props.errMsg}</p>
     </div>
   );
 }

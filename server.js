@@ -17,7 +17,7 @@ app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 app.use('/clients', clientRouter);
 app.use('/auth', authRouter);
 
-clients = [];
+// clients = [];
 
 mongoose.Promise = global.Promise;
 mongoose.connect(

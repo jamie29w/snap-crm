@@ -1,5 +1,7 @@
 import React from 'react';
+import { authActions } from '../../redux/users';
 import LoginPageComponent from './Component';
+import { connect } from 'react-redux';
 
 class LoginPageContainer extends React.Component {
   constructor() {
@@ -16,12 +18,23 @@ class LoginPageContainer extends React.Component {
     this.signupAttempt = this.signupAttempt.bind(this);
   }
 
-  loginAttempt(username, password) {
-    console.log('loginAttempt run');
+  clearInputs() {
+    this.setState({
+      inputs: {
+        username: '',
+        password: ''
+      }
+    });
   }
 
-  signupAttempt(username, password) {
-    console.log('signupAttempt run');
+  loginAttempt() {
+    this.props.signin(this.state.inputs, this.props.history);
+    this.clearInputs();
+  }
+
+  signupAttempt() {
+    this.props.signup(this.state.inputs, this.props.history);
+    this.clearInputs();
   }
 
   handleChange(e) {
@@ -42,15 +55,27 @@ class LoginPageContainer extends React.Component {
   }
 
   render() {
+    let authErrCode = this.props.authReducer.authErrCode.signin;
+    let errMsg = '';
+    if (authErrCode < 500 && authErrCode > 399) {
+      errMsg = 'Invalid Username or Password. Please try again.';
+    } else if (authErrCode > 499) {
+      errMsg = 'Server error';
+    }
     return (
       <LoginPageComponent
         handleChange={this.handleChange}
         inputs={this.state.inputs}
         loginAttempt={this.loginAttempt}
         signupAttempt={this.signupAttempt}
+        errMsg={errMsg}
       />
     );
   }
 }
 
-export default LoginPageContainer;
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(mapStateToProps, authActions)(LoginPageContainer);

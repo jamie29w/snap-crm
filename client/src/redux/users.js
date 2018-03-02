@@ -1,4 +1,11 @@
 import axios from 'axios';
+const protectedAxios = axios.create();
+
+protectedAxios.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
 
 const authUrl = '/auth/';
 
@@ -7,20 +14,13 @@ const LOGON = 'LOGON';
 const LOGOUT = 'LOGOUT';
 const HANDLE_AUTH_ERROR = 'HANDLE_AUTH_ERROR';
 
-//EXPLAIN
-axios.interceptors.request.use(config => {
-  const token = localStorage.getItem('token');
-  config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
-
 //HELPER FUNCTIONS
 const logon = (success, user) => {
-  // console.log(`at logon helper fxn`);
-  // console.log(`success is:`);
-  // console.log(success);
-  // console.log(`user is:`);
-  // console.log(user);
+  console.log(`at logon helper fxn`);
+  console.log(`success is:`);
+  console.log(success);
+  console.log(`user is:`);
+  console.log(user);
   return {
     type: LOGON,
     success,
@@ -81,12 +81,10 @@ const logout = () => {
 
 const verify = (history, pathname) => {
   return dispatch => {
-    axios
+    protectedAxios
       .get(authUrl + 'verify')
       .then(response => {
         let { success, user } = response.data;
-        // console.log('success:');
-        // console.log(success);
         dispatch(logon(success, user));
         history.push(pathname);
       })

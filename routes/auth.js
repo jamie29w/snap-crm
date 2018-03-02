@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const Strategy = require('passport-local');
 const jwt = require('jsonwebtoken');
-const settings = require('../settings');
+const config = require('../config');
 const User = require('../models/user');
 const authRouter = express.Router();
 
@@ -24,6 +24,28 @@ passport.use(
 
 authRouter.use(passport.initialize());
 
+authRouter.get('/verify', (req, res) => {
+  User.findOne({ user: req.user._id }, (err, user) => {
+    if (err) {
+      res.status(500).send({
+        success: false,
+        err
+      });
+    } else if (user === null) {
+      res.status(404).send({
+        success: false,
+        err: 'That user does not exist.'
+      });
+    } else {
+      user = user.withoutPassword();
+      res.status(201).send({
+        success: true,
+        user
+      });
+    }
+  });
+});
+
 authRouter.post(
   '/login',
   passport.authenticate('local', { session: false }),
@@ -44,7 +66,7 @@ authRouter.post(
         res.status(201).send({
           success: true,
           user,
-          token: jwt.sign(user, settings.secret, {
+          token: jwt.sign(user, config.secret, {
             expiresIn: 24 * 60 * 30
           })
         });
@@ -77,7 +99,7 @@ authRouter.post('/signup', (req, res) => {
           res.status(201).send({
             success: true,
             savedUser,
-            token: jwt.sign(savedUser.toJSON(), settings.secret, {
+            token: jwt.sign(savedUser.toJSON(), config.secret, {
               expiresIn: 24 * 60 * 30
             })
           });

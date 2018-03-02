@@ -7,6 +7,7 @@ const authRouter = require('./routes/auth');
 const cors = require('cors');
 const path = require('path');
 const config = require('./config.js');
+const expressJwt = require('express-jwt');
 
 const app = express();
 
@@ -14,7 +15,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static(path.resolve(__dirname, 'client', 'build')));
-app.use('/clients', clientRouter);
+app.use('/api', expressJwt({ secret: config.secret }));
+app.use('/auth/verify', expressJwt({ secret: config.secret }));
+app.use('/api/clients', clientRouter);
 app.use('/auth', authRouter);
 
 // clients = [];

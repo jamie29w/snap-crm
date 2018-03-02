@@ -1,6 +1,12 @@
 import axios from 'axios';
+const protectedAxios = axios.create();
+const clientsUrl = '/api/clients/';
 
-const clientsUrl = '/clients/';
+protectedAxios.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
 
 //ACTION VARS
 const LOAD_CLIENTS = 'LOAD_CLIENTS';
@@ -11,7 +17,7 @@ const EDIT_CLIENT = 'EDIT_CLIENT';
 //CLIENT (AKA SESSION) ACTIONS
 const loadClients = () => {
   return dispatch => {
-    axios.get(clientsUrl).then(response => {
+    protectedAxios.get(clientsUrl).then(response => {
       dispatch({
         type: LOAD_CLIENTS,
         clients: response.data
@@ -22,7 +28,7 @@ const loadClients = () => {
 
 const addClient = client => {
   return dispatch => {
-    axios.post(clientsUrl, client).then(response => {
+    protectedAxios.post(clientsUrl, client).then(response => {
       console.log(response.data);
       console.log(`response.data is`);
       dispatch({
@@ -35,7 +41,7 @@ const addClient = client => {
 
 const deleteClient = id => {
   return dispatch => {
-    axios.delete(clientsUrl + id).then(response => {
+    protectedAxios.delete(clientsUrl + id).then(response => {
       dispatch({
         type: DELETE_CLIENT,
         id
@@ -46,7 +52,7 @@ const deleteClient = id => {
 
 const editClient = (id, editedClient) => {
   return dispatch => {
-    axios.put(clientsUrl + id, editedClient).then(response => {
+    protectedAxios.put(clientsUrl + id, editedClient).then(response => {
       dispatch({
         type: EDIT_CLIENT,
         editedClient: response.data,

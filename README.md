@@ -17,10 +17,10 @@ git clone https://github.com/jamie29w/snap-crm
 cd snap-crm
 
 //Install backend dependencies
-yarn
+npm i
 
 //Spin up the backend
-node start
+node server.js
 
 //Open another terminal window
 //Go into the client

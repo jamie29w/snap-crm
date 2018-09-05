@@ -7,7 +7,8 @@ Users can:
 - include client name, session location, and session-specific notes
 - keep track of both quote and deposit payment status
 
-# How to use
+## How to use
+#### Note: You'll need to [install and run MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/) to demo the back end.
 
 ```bash
 //Clone this repository
@@ -33,7 +34,7 @@ yarn
 yarn start
 ```
 
-# Related
+## Related
 
 Check out the demo version online at [snap-crm.jamiew.io](http://snap-crm.jamiew.io), and feel free to add, edit, and delete session details. It's there for you to play with.
 

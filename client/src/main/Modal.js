@@ -1,43 +1,35 @@
-//Update Modal flexbox styling for mobile responsiveness
-
-import React from "react";
+import React from "react"
 import {
     FormGroup,
     FormControl,
     Button,
     Modal,
     ToggleButton
-} from "react-bootstrap";
-import Datetime from "react-datetime";
+} from "react-bootstrap"
+import Datetime from "react-datetime"
 
 function ModalComponent(props) {
-    const modalStyles = {
-        color: "black",
-        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-        fontFamily: "'Raleway', sans-serif"
-    };
-    const headerStyles = {
-        backgroundColor: "rgba(18, 51, 66, 1)",
-        color: "#FAFAFA"
-    };
     const bodyStyles = {
         backgroundColor: "rgba(18, 51, 66, 0.8)",
         color: "#FAFAFA",
         minWidth: "275px"
-    };
-    const rowStyles = {
-        width: "100%",
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-between"
-    };
+    }
+    const checkboxDiv = {
+        width: "25%"
+    }
+    const checkboxStyles = {
+        margin: "0% 25%"
+    }
     const colStyles = {
         width: "50%",
         minWidth: "250px",
         flex: "1 1 auto",
         margin: "5px 0px"
-    };
+    }
+    const headerStyles = {
+        backgroundColor: "rgba(18, 51, 66, 1)",
+        color: "#FAFAFA"
+    }
     const inputStyles = {
         width: "90%",
         marginLeft: "5%",
@@ -45,14 +37,34 @@ function ModalComponent(props) {
         marginBottom: "5px",
         color: "black",
         flex: "1 1 auto"
-    };
+    }
+    const modalStyles = {
+        color: "black",
+        boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+        fontFamily: "'Raleway', sans-serif"
+    }
+    const paidInputStyles = {
+        width: "100%",
+        marginLeft: "5%"
+    }
+    const paidRow = {
+        display: "flex",
+        width: "100%"
+    }
+    const rowStyles = {
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-between"
+    }
     const shortInputStyles = {
         width: "88%",
         marginLeft: "5%",
         marginRight: "5%",
         marginBottom: "5px",
         color: "black"
-    };
+    }
     const textAreaStyles = {
         color: "black",
         minWidth: "95%",
@@ -61,22 +73,8 @@ function ModalComponent(props) {
         marginRight: "2.5%",
         marginBottom: "5px",
         height: "20vh"
-    };
-    const paidRow = {
-        display: "flex",
-        width: "100%"
-    };
-    const checkboxDiv = {
-        width: "25%"
-    };
-    const checkboxStyles = {
-        margin: "0% 25%"
-    };
-
-    const paidInputStyles = {
-        width: "100%",
-        marginLeft: "5%"
-    };
+    }
+    
 
     return (
         <Modal show={props.show} onHide={props.onHide} style={modalStyles}>
@@ -205,7 +203,7 @@ function ModalComponent(props) {
                 </form>
             </Modal.Body>
         </Modal>
-    );
+    )
 }
 
-export default ModalComponent;
+export default ModalComponent

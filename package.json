@@ -5,8 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
-        "heroku-postbuild":
-            "cd client && yarn --production=false && yarn run build"
+        "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
     },
     "author": "",
     "license": "ISC",

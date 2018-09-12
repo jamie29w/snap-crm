@@ -4,7 +4,8 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "start": "node server.js",
+        "deploy": "now --public"
     },
     "author": "",
     "license": "ISC",
@@ -21,7 +22,7 @@
         "alias": "snap-crm",
         "name": "snap-crm",
         "env": {
-            "PORT": 8900,
+            "PORT": "8900",
             "DB": "@db"
         }
     }

@@ -1,7 +1,7 @@
 const express = require("express");
 const clientRoutes = express.Router();
 const Client = require("../models/client");
-require('dontenv').config()
+require('dotenv').config()
 
 clientRoutes.get("/", (req, res) => {
     Client.find(req.query, (err, foundClients) => {

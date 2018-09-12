@@ -9,8 +9,6 @@ const path = require("path")
 const config = require("./config.js")
 
 
-
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan("dev"));

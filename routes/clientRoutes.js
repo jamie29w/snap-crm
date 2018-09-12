@@ -3,6 +3,8 @@ const clientRoutes = express.Router();
 const Client = require("../models/client");
 require('dotenv').config()
 
+app.use(express.static(path.join(__dirname, "client", "build")));
+
 clientRoutes.get("/", (req, res) => {
     Client.find(req.query, (err, foundClients) => {
         if (err) return res.status(500).send(err);
@@ -43,5 +45,9 @@ clientRoutes.put("/:id", (req, res) => {
         }
     );
 });
+
+clientRoutes.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"))
+})
 
 module.exports = clientRoutes;

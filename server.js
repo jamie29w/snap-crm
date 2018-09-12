@@ -1,13 +1,15 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const mongoose = require("mongoose");
-const clientRoutes = require("./routes/clientRoutes");
-const cors = require("cors");
-const path = require("path");
-const config = require("./config.js");
+const express = require("express")
+const app = express()
+const bodyParser = require("body-parser")
+const morgan = require("morgan")
+const mongoose = require("mongoose")
+const clientRoutes = require("./routes/clientRoutes")
+const cors = require("cors")
+const path = require("path")
+const config = require("./config.js")
 
-const app = express();
+
+
 
 app.use(cors());
 app.use(bodyParser.json());

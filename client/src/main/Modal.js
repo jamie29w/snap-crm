@@ -78,7 +78,7 @@ function ModalComponent(props) {
 
     return (
         <Modal show={props.show} onHide={props.onHide} style={modalStyles}>
-            <Modal.Header style={headerStyles} closeButton>
+            <Modal.Header style={headerStyles} >
                 <Modal.Title>Your Client Session:</Modal.Title>
             </Modal.Header>
             <Modal.Body style={bodyStyles}>

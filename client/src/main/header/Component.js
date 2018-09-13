@@ -9,7 +9,7 @@ function HeaderComponent(props) {
     const headerDivStyles = {
         backgroundColor: "rgba(18, 51, 66, 0.8)",
         width: "100%",
-        height: "20vh",
+        maxHeight: "20vh",
         minHeight: "170px",
         display: "flex",
         alignItems: `${props.flexDir ? "flex-start" : "flex-end"}`,
@@ -17,7 +17,8 @@ function HeaderComponent(props) {
         justifyContent: `${props.flexDir ? "space-around" : "space-between"}`,
         transition: "all ease-in-out 0.5s",
         position: "fixed",
-        flexWrap: "no-wrap"
+        flexWrap: "no-wrap",
+        marginBottom: 10
     };
     console.log(headerDivStyles);
 

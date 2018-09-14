@@ -5,7 +5,7 @@ import moment from "moment";
 
 function ClientRenderComponent(props) {
     const cardStyles = {
-        backgroundColor: "rgba(223, 223, 229, 0.9)",
+        backgroundColor: "rgba(223, 223, 229, 0.85)",
         width: "30%",
         minWidth: "250px",
         maxWidth: "300px",

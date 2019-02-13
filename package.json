@@ -14,11 +14,12 @@
         "cors": "^2.8.4",
         "dotenv": "^6.0.0",
         "express": "^4.16.2",
-        "mongoose": "^4.13.1",
-        "morgan": "^1.9.0",
+        "mongoose": "^5.4.11",
+        "morgan": "^1.9.1",
         "now": "^11.4.2",
         "path": "^0.12.7"
-    }, "now": {
+    },
+    "now": {
         "alias": "snap-crm",
         "name": "snap-crm",
         "env": {
